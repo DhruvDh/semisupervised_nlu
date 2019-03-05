@@ -32,7 +32,7 @@ A fancy name to give to something researchers in NLP have been doing for years. 
 A paper [The Natural Language Decathlon:
 Multitask Learning as Question Answering](https://arxiv.org/abs/1806.08730) has demonstrated how labelled data can be used to train a language model to perform multiple tasks by casting all tasks as question-answers over a context, while another recent paper [Language Models are Unsupervised Multitask Learners](https://d4mucfpksywv.cloudfront.net/better-language-models/language_models_are_unsupervised_multitask_learners.pdf) by researchers at OpenAI has shown how better quality data, and a more complex transformer based architecture results in a model that can achieve state-of-the-art results without any finetuning whatsoever.
 
-![Question-answer format](fig1.jpg)
+![Question-answer format](documents/fig1.jpg)
 
 While the researchers at OpenAI made no attempts at finetuning the GPT2 on various tasks - the whole point of the paper was that language models trained with quality data can achieve competitive results on various tasks _without any finetuning_. However, we couldn't help but be _very excited_ about finding out how such a model would perform with finetuning, considering that, to the best of our knowledge, there has never been any language model trained with data of this quality, and scale without the data being bastardized by any harsh pre-processing.
 
@@ -105,7 +105,7 @@ gantt
      Final written Report                :2019-04-15, 15d
      Poster :2019-04-25, 5d -->
 
-![Timeline - Gantt Chart](timeline.svg)
+![Timeline - Gantt Chart](documents/timeline.svg)
 
 ### Division of work
 
