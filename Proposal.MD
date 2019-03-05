@@ -72,7 +72,14 @@ The problem which we refer to as Natural Language Understanding is succinctly de
 
 ### Timeline
 
+- March 4 | Project Proposal
+- April 1 | Project Midterm Report
+- April 30 | Project Poster
+- May 6 | Project Final Report
+
 ### Division of work
+
+
 
 ## Miscellaneous Information
 
