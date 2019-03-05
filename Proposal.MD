@@ -5,6 +5,21 @@
 - Himanshu Sunil Dhawale (hdhawale@uncc.edu)
 - Bhavya Chawla (bchawla@uncc.edu)
 
+## Table of contents
+
+- [Fine-tuning Language models to solve Natural Language Understanding tasks](#fine-tuning-language-models-to-solve-natural-language-understanding-tasks)
+  - [Table of contents](#table-of-contents)
+  - [Introduction](#introduction)
+  - [The Problem](#the-problem)
+  - [Literature Review](#literature-review)
+  - [Logistics](#logistics)
+    - [Timeline](#timeline)
+    - [Division of work](#division-of-work)
+  - [Miscellaneous Information](#miscellaneous-information)
+    - [Questions that we want to answer during the project](#questions-that-we-want-to-answer-during-the-project)
+    - [Expectation of what you will be able to learn from the project](#expectation-of-what-you-will-be-able-to-learn-from-the-project)
+    - [Is our idea novel?](#is-our-idea-novel)
+
 ## Introduction
 
 Omni-Supervised learning was defined as _a special
