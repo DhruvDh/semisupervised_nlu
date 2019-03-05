@@ -73,7 +73,14 @@ The problem which we refer to as Natural Language Understanding is succinctly de
 ### Timeline
 
 - March 4 | Project Proposal
+- March 15 | Prototype
+- March 20 | Training 
+- March 25 | Testing and Identify defects
 - April 1 | Project Midterm Report
+- April 10 | Improve the Model
+- April 15 | Training
+- April 20 | Testing and Identify Defects
+- April 25 | Complete Final Model
 - April 30 | Project Poster
 - May 6 | Project Final Report
 
