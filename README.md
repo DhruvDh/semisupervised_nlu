@@ -109,6 +109,8 @@ gantt
 
 ### Division of work
 
+Unlike a traditional software engineering project, there is no easy way to divide labour when it comes to training a model. As such we would shy away from attempting to do such a thing, and work as a single unit until we are in the training phase, at which time all of us will run independent experiments for training the network; the best model will be used.
+
 ## Miscellaneous Information
 
 ### Questions that we want to answer during the project
