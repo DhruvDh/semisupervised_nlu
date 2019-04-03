@@ -42,7 +42,7 @@ We'll also be experimenting with the use of data augmentation in the question-co
 
 ## The Problem
 
-The problem which we refer to as Natural Language Understanding is succinctly described in this [blog post](https://medium.com/snips-ai/benchmarking-natural-language-understanding-systems-google-facebook-microsoft-and-snips-2b8ddcf9fb19.), to quote:
+The problem which we refer to as Natural Language Understanding is succinctly described in this [blog post](https://medium.com/snips-ai/benchmarking-natural-language-understanding-systems-google-facebook-microsoft-and-snips-2b8ddcf9fb19), to quote:
 
 > ### Natural Language Understanding - It's all about filling slots.
 >
