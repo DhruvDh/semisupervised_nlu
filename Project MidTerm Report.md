@@ -1,8 +1,3 @@
----
-
-
----
-
 <h2 id="fine-tuning-language-models-to-solve-natural-language-understanding-tasks"><strong>Fine-tuning Language models to solve Natural Language Understanding tasks</strong></h2>
 <p><strong>Team Name:</strong> Regrayshun</p>
 <p><strong>Team Members</strong><br>
