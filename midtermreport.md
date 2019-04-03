@@ -1,6 +1,6 @@
 
 <h1> Semi Supervised Natural Language Understanding </h1>
-### Team Name: Regrayshun ### <br>
+<h3> Team Name: Regrayshun </h3>
 Team Members:
 Bhavya Chawla(801081909)
 Dhruv Dhamani(801084292)
