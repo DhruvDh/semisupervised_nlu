@@ -1,5 +1,5 @@
 
-Semi Supervised Natural Language Understanding 
+<h1> Semi Supervised Natural Language Understanding <h1>
 Team Name: Regrayshun
 Team Members:
 Bhavya Chawla(801081909)
