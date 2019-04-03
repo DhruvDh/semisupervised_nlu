@@ -1,11 +1,6 @@
 
 <h1> Semi Supervised Natural Language Understanding </h1>
 <h3> Team Name: Regrayshun </h3>
-Team Members:
-Bhavya Chawla(801081909)
-Dhruv Dhamani(801084292)
-Himanshu Dhawale(801084142)
-Saloni Gupta(801080992)
 
 Topic and Inspiration: 
 In everyday life we use Google Assistant, Siri and other artificially intelligent assistants that are trained to understand our language and process it to perform tasks. So, when we think about how these systems work
