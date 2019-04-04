@@ -71,7 +71,7 @@ Machine learning approaches are tend to either be supervised or unsupervised.
   One field that satisfies all of these requirements is Natural Language processing -
 
   1. Availability of large amounts of raw data - Large amounts of written down, digital representations of language, i.e. text, is basically what the internet is. I don't think more needs to be said here.
-  2. Existence of satisfactory feedback mechanisms to facilitate unsupervised learning - Academia has been doing unsupervised learning in the field of Natural Language Processing for years. The process in which word vectors are learnt - the process of capturing meaning of words in a vector of floating point numbers by providing lots of examples of how the words are used in the natural language *is* unsupervised learning.
+  2. Existence of satisfactory feedback mechanisms to facilitate unsupervised learning - Academia has been doing unsupervised learning in the field of Natural Language Processing for years. The process in which word vectors and language models are learnt - the process of capturing meaning of words in a vector of floating point numbers by providing lots of examples of how the words are used in the natural language *is* unsupervised learning.
   3. Ease of transformation and curation of labelled data into unlabelled data - more on this in the review of related work and the approach and summary of methods sections below.
 
 ## Background
@@ -82,7 +82,7 @@ Traditionally, language models refer to statistical language models which can be
 
 For instance, an English language model would assign `I love dogs` a higher probability than `I dogs love`. 
 
-Why is this important? 
+**Why is this important? **
 
 In a way, language models assign a sensibility score or a naturalness score. This is due to the fact that the language models are trained with lots of sensible and natural sentences (ideally), and if so it is obvious that sentences like `I love dogs` (a sensible sentence) has a much higher probability in occurring the data the model has been trained with than `I dogs love` (a nonsensical one).
 
@@ -111,7 +111,16 @@ But `A` is still more *natural* or more *sensible* than `B`, since `A` would mak
 
 What we're trying to argue is that if language models are good enough, they can also be thought of as *Sensibility Models* or at least *Common Sense Models*.
 
-Even if you do agree with everything that was just said, you would still doubt the feasibility or practicality of training a model that was actually a good Sensibility model or Common Sense Model. These are good doubts to have, but thankfully there researchers who have done work to support this way of thinking.
+Even if you do agree with everything that was just said, you would still doubt the feasibility or practicality of training a model that was actually a good Sensibility model or Common Sense Model. These are good doubts to have, but thankfully there are researchers who have done work to support this way of thinking.
+
+> Neural language models are different than statistical language models in the sense that the task neural language models are trained to do is to predict the next word after a sequence of words or predict the missing words in a sequence. 
+> 
+> The word that the neural language model predicts is the word which when added to the given input sequence, gives us a sequence with the highest probability of occurring in the language. A subtle but important difference. 
+> 
+> Neural language models can also thusly generate language by predicting the next word again and again. For instance, given a sequence `I love dogs so I got`, a neural language model might generate the next few words as `a dog`, etc. For the rest of the document whenever a language model is mentioned we refer to it being as something that predicts the next word(s), rather than something that gives a probability score for the sequence of input words.
+
+
+
 
 ### Related work
 
