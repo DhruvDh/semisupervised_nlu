@@ -1,3 +1,106 @@
+# Semi-supervised Natural Language Understanding
+
+## Table of Contents
+
+- [Semi-supervised Natural Language Understanding](#semi-supervised-natural-language-understanding)
+  - [Table of Contents](#table-of-contents)
+  - [Team](#team)
+  - [Introduction](#introduction)
+    - [**Semi-supervised** Natural Language Understanding:](#semi-supervised-natural-language-understanding)
+    - [Semi-supervised **Natural Language Understanding**:](#semi-supervised-natural-language-understanding)
+  - [Background](#background)
+    - [Language Models](#language-models)
+    - [Related work](#related-work)
+  - [Problem Statement](#problem-statement)
+    - [Motivation](#motivation)
+    - [Dataset](#dataset)
+    - [Approach and Summary of Methods](#approach-and-summary-of-methods)
+  - [Logistics](#logistics)
+    - [Updated Timeline](#updated-timeline)
+    - [Updated Division of Work](#updated-division-of-work)
+  - [Reflections](#reflections)
+    - [Differences and novelty](#differences-and-novelty)
+  - [References and Citation](#references-and-citation)
+
+## Team
+
+- Team Name: Regrayshun
+- Team Members:
+  - Dhruv Dhamani (ddhamani@uncc.edu)
+  - Saloni Gupta (sgupta38@uncc.edu)
+  - Himanshu Sunil Dhawale (hdhawale@uncc.edu)
+  - Bhavya Chawla (bchawla@uncc.edu)
+
+## Introduction
+
+Let's break down the project title in two for clarity -
+
+### **Semi-supervised** Natural Language Understanding:
+  
+Machine learning approaches are tend to either be supervised or unsupervised.
+
+  - A supervised approach as in we when have curated data with a clear expectation for what parts of the data are the *input* to the model and what part the model is supposed to predict/infer or present as an *output*.
+  - In general, unsupervised approaches mean that the data we have has not been labelled, classified or categorized. Instead, we create some sort of a feedback mechanism for the model which helps it identify commonalities in the data and react based on the presence or absence of such commonalities in each new piece of data.
+  
+  When we say *semi-supervised* what we mean is that we're going to take pre-existing labelled, classified or categorized data - the kind of data one uses for *supervised learning*, and transform and curate it into unlabelled data - the kind of data one uses for *unsupervised learning* - with the transformation or curation being done *on the basis of the labels of our pre-existing labelled data*, and then use this curated data for training our model.
+
+  **Why would anyone do such a thing?** 
+  
+  Well, the motivation is simple. One could argue that as a general rule, there is a lot more unlabelled data in existence than labelled data. Thereby, if one creates a machine learning system that learns by use of unlabelled data, it is always going to have more data to learn from than a system that is based on learning from labelled data.
+
+  And in most cases, the more data you have, the better machine learning systems can learn. Thusly, by transforming and curating labelled data for supervised learning approaches into unlabelled data for unsupervised learning approaches, we also manage to increase the available data for learning manifold; assuming the area of application of said machine learning system have availability of unlabelled data that can be learned from, and satisfactory feedback mechanisms for unsupervised learning to take place.
+
+### Semi-supervised **Natural Language Understanding**:
+  
+  Natural language understanding or Natural language inference is a subtopic of natural-language processing in artificial intelligence that deals with machine reading comprehension. It can be thought of as what happens after natural language processing (NLP) - if a computer was presented with the sentence -
+    
+    This is a sentence.
+
+  The results of performing NLP techniques and algorithms on this sentence would give us information about what the individual words in the sentence are relative to the grammar of that language, and what the relationship between the words in the sentence is. It would look something like -
+
+  ![Example of spacy's NLP](spacy-viz.svg)
+
+  Now taking this set of information produced by NLP algorithms and getting a machine to _comprehend_ or _understand_ what the sentence means is what Natural Language Understanding/Inference is.
+
+  Our above discussion of the motivation behind doing "semi-supervised" learning lead us to the conclusion that semi-supervised learning might be a good thing to do in the following scenarios -
+
+  - when there is availability of large amounts of raw data that can be learned from
+  - when there exist satisfactory feedback mechanisms to facilitate unsupervised learning
+  - (and also when labelled data can be transformed and curated into labelled data without a whole lot of hiccups)
+
+  One field that satisfies all of these requirements is Natural Language processing -
+
+  1. Availability of large amounts of raw data - Large amounts of written down, digital representations of language, i.e. text, is basically what the internet is. I don't think more needs to be said here.
+  2. Existence of satisfactory feedback mechanisms to facilitate unsupervised learning - Academia has been doing unsupervised learning in the field of Natural Language Processing for years. The process of capturing meaning of words in a vector of floating point numbers by simply providing lots of examples of how the words are used in the natural language *is* unsupervised learning.
+  3. Ease of transformation and curation of labelled data into unlabelled data - more on this in the review of related work and the approach and summary of methods sections below.
+
+## Background
+
+### Language Models
+
+### Related work
+
+## Problem Statement
+
+### Motivation
+
+### Dataset
+
+### Approach and Summary of Methods
+
+## Logistics
+
+### Updated Timeline
+
+### Updated Division of Work
+
+## Reflections
+
+### Differences and novelty
+
+## References and Citation
+
+
 <h2 id="fine-tuning-language-models-to-solve-natural-language-understanding-tasks"><strong>Fine-tuning Language models to solve Natural Language Understanding tasks</strong></h2>
 <p><strong>Team Name:</strong> Regrayshun</p>
 <p><strong>Team Members</strong><br>
