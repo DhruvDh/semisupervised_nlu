@@ -11,7 +11,8 @@
   - [Background](#background)
     - [Language Models](#language-models)
     - [Related work](#related-work)
-  - [Problem Statement](#problem-statement)
+  - [The Problem](#the-problem)
+    - [Introduction](#introduction-1)
     - [Motivation](#motivation)
     - [Dataset](#dataset)
     - [Approach and Summary of Methods](#approach-and-summary-of-methods)
@@ -153,13 +154,72 @@ Even if you do agree with everything that was just said, you would still doubt t
 
 
 
-## Problem Statement
+## The Problem
+
+### Introduction
+
+We intend to use generative language models to solve Natural language Understanding (NLU) tasks, as described above. More so than solving we want to analyze how good generative language models can be at this task, and think about the best way to cast a labelled dataset into question-answer pairs to solve this task. The language model we'll use is GPT2 as described above.
 
 ### Motivation
 
+As we've discussed above, recent work done is NLP proves that generative language models can indeed act as Sensibility Models, or act as though they're *intelligent*.
+
+That being said, the work done does not explore how best to train a generative language model to do a certain NLP task; the three major inspirations for our work ([McCann et al. 2018](https://arxiv.org/abs/1901.11373), [Radford et al. 2019](https://d4mucfpksywv.cloudfront.net/better-language-models/language_models_are_unsupervised_multitask_learners.pdf), and [Yogatama et al. 2019](https://arxiv.org/abs/1901.11373)) have focused on Multitask learning, and have made no special efforts in coercing language models to perform better at a certain task.
+
+We intend to choose one task - Natural Language Understanding/Inference - and try to evaluate the performance of various ways of casting the labelled data into question-answer pairs for the generative language model to be trained on, and see which ways perform the best, and think about why it does so. More on this in the approach and summary of methods section.
+
 ### Dataset
 
+The dataset focuses on seven *intents* (things a user could want to do) -
+* SearchCreativeWork (e.g. *Find me the I, Robot television show*),
+* GetWeather (e.g. *Is it windy in Boston, MA right now?*),
+* BookRestaurant (e.g. *I want to book a highly rated restaurant for me and my boyfriend tomorrow night*),
+* PlayMusic (e.g. *Play the last track from Beyoncé off Spotify*),
+* AddToPlaylist (e.g. *Add Diamonds to my roadtrip playlist*)
+* RateBook (e.g. *Give 6 stars to Of Mice and Men*)
+* SearchScreeningEvent (e.g. *Check the showtimes for Wonder Woman in Paris*)
+
+More than 2000 samples exist for each intent. The dataset here on slot filling (figuring out what are the entities in the utterance that are relevant to carrying out the user's intent), for example -
+
+*“Is it gonna be sunny on **Sunday after lunch**, so we can go to **Coney Island**?”*
+
+Here the slot of `date-time` needs to be filled with *Sunday after lunch*, and `location` needs to be filled with *Coney Island*.
+
 ### Approach and Summary of Methods
+
+To understand the approach easily, let's consider a sample from the dataset -
+
+*Book spot for three at Maid-Rite Sandwich Shop in Antigua and Barbuda*
+
+It is stored in the dataset as the following JSON object.
+
+```javascript
+[
+  {
+    "text": "Book spot for "
+  },
+  {
+    "text": "three",
+    "entity": "party_size_number"
+  },
+  {
+    "text": " at "
+  },
+  {
+    "text": "Maid-Rite Sandwich Shop",
+    "entity": "restaurant_name"
+  },
+  {
+    "text": " in "
+  },
+  {
+    "text": "Antigua and Barbuda",
+    "entity": "country"
+  }
+]
+```
+
+The relevant slots that need to be filled here are `party_size_number`, and `restaurant_name`.
 
 ## Logistics
 
