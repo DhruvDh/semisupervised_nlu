@@ -15,7 +15,9 @@
     - [Introduction](#introduction-1)
     - [Motivation](#motivation)
     - [Dataset](#dataset)
-    - [Approach and Summary of Methods](#approach-and-summary-of-methods)
+    - [Our Approach](#our-approach)
+    - [Methods in more detail](#methods-in-more-detail)
+      - [Performance metrics](#performance-metrics)
   - [Logistics](#logistics)
     - [Updated Timeline](#updated-timeline)
     - [Updated Division of Work](#updated-division-of-work)
@@ -185,11 +187,11 @@ More than 2000 samples exist for each intent. The dataset here on slot filling (
 
 Here the slot of `date-time` needs to be filled with *Sunday after lunch*, and `location` needs to be filled with *Coney Island*.
 
-### Approach and Summary of Methods
+### Our Approach
 
 To understand the approach easily, let's consider a sample from the dataset -
 
-*Book spot for three at Maid-Rite Sandwich Shop in Antigua and Barbuda*
+*"Book spot for three at Maid-Rite Sandwich Shop in Antigua and Barbuda"*
 
 It is stored in the dataset as the following JSON object.
 
@@ -219,7 +221,34 @@ It is stored in the dataset as the following JSON object.
 ]
 ```
 
-The relevant slots that need to be filled here are `party_size_number`, and `restaurant_name`.
+The relevant slots that need to be filled here are `party_size_number`, and `restaurant_name`. As such, this can be casted as the following question-answer pairs -
+
+- `Book a spot for three at Maid-Rite Sandwich Shop in Antigua and Barbuda. Which restaurant? [...]`
+- `Book a spot for three at Maid-Rite Sandwich Shop in Antigua and Barbuda. What is the party size? [...]` 
+
+The `[...]` part is where the generative language model starts predicting the next few words, which ends up telling us how to fill the `restaurant_name` slot for the first example, and `party_size_number` for the second example.
+
+However, WebText, the dataset our generative language model is trained on, probably does not have many examples of such question-answer pairs occurring in it. It is composed mostly of news articles, blog posts, etc. As such we hypothesize such an approach would not end up working out that well, without fine-tuning. How the model would perform after fine-tuning, well, I think we'll know only after doing it.
+
+Another way to accomplish this same task would be to prompt the model into giving us an answer. We hypothesize that this would work better. For example -
+
+- `Book a spot for three at Maid-Rite Sandwich Shop in Antigua and Barbuda. I'll book a table for you at [...]`
+- `Book a spot for three at Maid-Rite Sandwich Shop in Antigua and Barbuda. I'll book a table for [...]` 
+
+Sentences like these are probably more likely to occur in WebText, and GPT2 shouldn't suck at this initially, without any fine-tuning. What happens after fine-tuning is something we'll know only after fine-tuning.
+
+### Methods in more detail
+
+1. We'll first evaluate how GPT2 performs out-of-the-box, without any fine-tuning, on various ways of casting our labelled data into question-answer pairs, or utterance-prompt pairs.
+2. We'll then proceed to split the dataset into training and testing.
+3. We'll train GPT2 on casted training data, and evaluate it's performance on testing data.
+4. We'll repeat step 3 for as many question-answer, utterance-prompt pairs we can think of.
+
+#### Performance metrics
+
+Evaluating how a generative language model is performing at such tasks isn't straight forward. For instance, consider the utterance -
+
+
 
 ## Logistics
 
