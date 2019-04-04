@@ -17,6 +17,10 @@ The dataset that we are using for our project has been sourced from a company na
 <p><strong>Model</strong><br>
 Explain the fine tuned model and how it works.</p>
 <p><strong>Literature Survey</strong><br>
+Data Distillation: Towards Omni-Supervised Learning]
+In this paper the researchers have investigated omni-supervised learning and proposed the concept of data distillation, a method capable of ensembling predictions from multiple transformations of unlabeled data, using a single model to automatically generate new training annotations. They were able to experiment and prove that their model could surpass large scale supervised learning with the help of data distillation.
+[The Natural Language Decathlon: Multitask Learning as Question Answering]
+The focus of this paper was on introducing a new benchmark for measuring the performance of NLP models. They presented MQAN model for simple question answering which capitalizes on questions with the help of a multi-pointer-generator decoder. They demonstrated how labelled data can be used to train a language model to perform multiple tasks by casting all tasks as question-answers over a context. We are using this concept to understand the question answer mechanism in order to make the model extract the correct query to perform slot filling.</p>
 At least 10 examples</p>
 <p><strong>Method</strong><br>
 Describe how are you fine tuning it.</p>
