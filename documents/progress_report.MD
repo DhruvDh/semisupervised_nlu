@@ -298,8 +298,8 @@ All of this is conjecture at this point, after we do more work and have more res
 ### Updated Division of Work
 |                                             Task                                             |           Person Assigned          |
 |--------------------------------------------------------------------------------------------|:----------------------------------:|
-| NLP,Language models                                                                          |                 All                |
-| Neural Networks, Best Practices                                                              |                 All                |
+| Learning about NLP, Language models                                                                          |                 All                |
+| Learning about Neural Networks, Best Practices                                                              |                 All                |
 | Preparing data for training                                                                  |   Bhavya Chawla and Saloni Gupta   |
 | Evaluating performance of GPT2 without fine tuning                                           | Dhruv Dhamani and Himanshu Dhawale |
 | Finetune GPT2 with training data (For intents AddToPlaylist, BookRestaurant)             |            Bhavya Chawla           |
