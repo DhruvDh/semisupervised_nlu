@@ -268,13 +268,48 @@ We've come up with our own way of evaluating it's performance. It goes as follow
 2. Count the number of words that occur in the prediction that also occur in the actual answer as a percentage. If the percentage is 100%, then the model got the answer completely right.
 3. Plot all the percentages for each way of casting labelled data and for each slot, as a distribution of values. Use the mean and standard deviation of these distributions as metrics of performance.
 
-All of this is conjecture at this point, after we do more work and have more results, we'll have a better idea of how best to evaluate the performance of our language model. We also invite ideas from you, since we're not really sure how best to go about it.
+All of this is conjecture at this point, after we do more work and have more results, we'll have a better idea of how best to evaluate the performance of the language model. We also invite ideas from you, since we're not really sure how best to go about it.
 
 ## Logistics
 
 ### Updated Timeline
+<!-- gantt
+    title Timeline
+    dateFormat  YYYY-MM-DD
+    section Learning
+    NLP, Language Models           :2019-03-01, 14d
+    Neural Networks, Best Practices     :2019-03-13  , 13d
+    section Data Prep
+    Preparing data for training      :2019-03-17  , 12d
+    section Fine Tuning and Experimentation
+    For intents AddToPlaylist and BookRestaurant      :2019-03-27  , 24d
+    For intents GetWeather and PlayMusic :2019-03-29  , 24d
+    For intent RateBook      :2019-03-29 , 24d
+    For intents SearchCreativeWork, SearchScreeningEvent      :2019-03-29  , 24d
+     section Analysis and Report
+     Progress Report              :2019-03-29, 7d
+     Final written Report                :2019-04-15, 15d
+     Analysing Results  :2019-04-15, 10d
+     Poster :2019-04-25, 5d 
+      -->
+
+![New Timeline](new_timeline.svg)
 
 ### Updated Division of Work
+
+|                                             Task                                             |           Person Assigned          |
+|:--------------------------------------------------------------------------------------------:|:----------------------------------:|
+| NLP,Language models                                                                          |                 All                |
+| Neural Networks, Best Practices                                                              |                 All                |
+| Preparing data for training                                                                  |   Bhavya Chawla and Saloni Gupta   |
+| Evaluating performance of GPT2 without fine tuning                                           | Dhruv Dhamani and Himanshu Dhawale |
+| Finetune GPT2 with training data (For Intents :Add to playlist, Book Restaurant)             |            Bhavya Chawla           |
+| Finetune GPT2 with training data (For Intents :Get weather, Play Music)                      |            Saloni Gupta            |
+| Finetune GPT2 with training data (For Intents :Rate Book)                                    |          Himanshu Dhawale          |
+| Finetune GPT2 with training data (For Intents :Search Creative Work, Search Screening event) |            Dhruv Dhamani           |
+| Evaluation and Analysis of results                                                           |          Himanshu Dhawale          |
+| Poster Presentation                                                                          | Dhruv Dhamani and Himanshu Dhawale |
+| Final Report                                                                                 |   Saloni Gupta and Bhavya Chawla   |
 
 ## Reflections
 
