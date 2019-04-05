@@ -290,7 +290,7 @@ We appreciate the feedback given to us as it really motivated us to improve and 
 
 As we continue to take inspiration and learn from the research done in the world, we have tried to put forward some different aspects. In [5] the model is given questions and context separately while we and implementing a model where we do not tell the model which part of the sequence is the question and which one i context. Similarly in [3] researchers tested the performance of GPT2 in a zero-shot setting while we intend to re-use the smallest GPT2 model released by them and attempt to fine-tune it by casting our labelled NLU dataset as question-answer pairs in natural language.
 
-Our proposed work is unusual for a project because it is more of a analytical study than an application of something. But we hope that our work is able to do some contribution in the field of research as we continue to learn and work on making it better.
+Our proposed work is unusual for a project because it is more of a analytical study than an application of something. Our worked is inpired by the research we have seen around and thus we cannot say that our work is novel. But we are trying to make the existing models a little better by implementing certain concepts that we have studied. But we hope that our work is able to do some contribution in the field of research as we continue to learn and work on making it better.
 
 ## References and Citation
 
