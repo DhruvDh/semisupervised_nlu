@@ -275,6 +275,7 @@ All of this is conjecture at this point, after we do more work and have more res
 ### Updated Timeline
 
 ### Updated Division of Work
+![Division of work](division.png)
 
 ## Reflections
 
