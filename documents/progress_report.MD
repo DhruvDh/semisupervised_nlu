@@ -154,8 +154,6 @@ Even if you do agree with everything that was just said, you would still doubt t
 
   This research dedicatedly explored different techniques like character convolutional network, Long-Short term memory, etc to deal with challenges like corpora and vocabulary sizes and complex long term structure of language. They demonstrated how the state-of-art model performed significantly better using lesser number of parameters. They scaled RNN based language models on 1 billion word benchmark to outperform competing models including tuned N-grams. This study helped us understand the state-of-art model better and how language models can be further improved using correct softmax approximations with important sampling. We were also able to extend our understanding of the regularization concept much deeply.
 
-
-
 ## The Problem
 
 ### Introduction
@@ -248,7 +246,29 @@ Sentences like these are probably more likely to occur in WebText, and GPT2 shou
 
 Evaluating how a generative language model is performing at such tasks isn't straight forward. For instance, consider the utterance -
 
+*"book The Middle East restaurant in IN for noon"*
 
+This is an actual sample from the `BookRestaurant` intent. We paired this with the question `Which restaurant?`, and fed it to GPT2-117M (117M represents the number of parameters - 117 million) as-is without any fine-tuning.
+
+This is what we got back from the model -
+
+```
+book The Middle East restaurant in IN for noon
+Which restaurant? 
+. new east: . newg $
+```
+
+The prediction the model made was `. new east: . newg $`. While it is nonsensical, it is still commendable that the model managed to get one part of the restaurant's name `east` in it's answer - without any actual training about restaurants or question answering, etc. Let's also not forget that GPT2-1542M (the largest model that achieved state of art results) is about `13.179` times larger than GPT2-117M - the model we're using.
+
+Which brings us to our question. How do we evaluate how well the model did?
+
+We've come up with our own way of evaluating it's performance. It goes as follows -
+
+1. Strip the generated sentence of any words that do not occur in the original user's utterance. This is due to the fact that this is a slot filling problem, and all the words that could be the answer, always occur in the user utterance.
+2. Count the number of words that occur in the prediction that also occur in the actual answer as a percentage. If the percentage is 100%, then the model got the answer completely right.
+3. Plot all the percentages for each way of casting labelled data and for each slot, as a distribution of values. Use the mean and standard deviation of these distributions as metrics of performance.
+
+All of this is conjecture at this point, after we do more work and have more results, we'll have a better idea of how best to evaluate the performance of our language model. We also invite ideas from you, since we're not really sure how best to go about it.
 
 ## Logistics
 
