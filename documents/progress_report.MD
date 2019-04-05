@@ -29,7 +29,7 @@
 
 - Team Name: Regrayshun
 - Team Members:
-  - Dhruv Dhamani (ddhamani@uncc.edu)
+  - Dhruv Dhamani (801084292) (ddhamani@uncc.edu)
   - Saloni Gupta (sgupta38@uncc.edu)
   - Himanshu Sunil Dhawale (hdhawale@uncc.edu)
   - Bhavya Chawla (bchawla@uncc.edu)
@@ -40,18 +40,18 @@ Let's break down the project title in two for clarity -
 
 ### **Semi-supervised** Natural Language Understanding:
   
-Machine learning approaches are tend to either be supervised or unsupervised.
+Machine learning approaches are tending to either be supervised or unsupervised.
 
   - A supervised approach as in we when have curated data with a clear expectation for what parts of the data are the *input* to the model and what part the model is supposed to predict/infer or present as an *output*.
   - In general, unsupervised approaches mean that the data we have has not been labelled, classified or categorized. Instead, we create some sort of a feedback mechanism for the model which helps it identify commonalities in the data and react based on the presence or absence of such commonalities in each new piece of data.
   
-  When we say *semi-supervised* what we mean is that we're going to take pre-existing labelled, classified or categorized data - the kind of data one uses for *supervised learning*, and transform and curate it into unlabelled data - the kind of data one uses for *unsupervised learning* - with the transformation or curation being done *on the basis of the labels of our pre-existing labelled data*, and then use this curated data for training our model.
+  When we say *semi-supervised* what we mean is that we're going to take pre-existing labelled, classified or categorized data - the kind of data one uses for *supervised learning*, and transform and curate it into unlabeled data - the kind of data one uses for *unsupervised learning* - with the transformation or curation being done *on the basis of the labels of our pre-existing labelled data*, and then use this curated data for training our model.
 
   **Why would anyone do such a thing?** 
   
-  Well, the motivation is simple. One could argue that as a general rule, there is a lot more unlabelled data in existence than labelled data. Thereby, if one creates a machine learning system that learns by use of unlabelled data, it is always going to have more data to learn from than a system that is based on learning from labelled data.
+  Well, the motivation is simple. One could argue that as a general rule, there is a lot more unlabeled data in existence than labelled data. Thereby, if one creates a machine learning system that learns by use of unlabelled data, it is always going to have more data to learn from than a system that is based on learning from labelled data.
 
-  And in most cases, the more data you have, the better machine learning systems can learn. Thusly, by transforming and curating labelled data for supervised learning approaches into unlabelled data for unsupervised learning approaches, we also manage to increase the available data for learning manifold; assuming the area of application of said machine learning system have availability of unlabelled data that can be learned from, and satisfactory feedback mechanisms for unsupervised learning to take place.
+  And in most cases, the more data you have, the better machine learning systems can learn. Thusly, by transforming and curating labelled data for supervised learning approaches into unlabeled data for unsupervised learning approaches, we also manage to increase the available data for learning manifold; assuming the area of application of said machine learning system have availability of unlabeled data that can be learned from, and satisfactory feedback mechanisms for unsupervised learning to take place.
 
 ### Semi-supervised **Natural Language Understanding**:
   
@@ -69,19 +69,19 @@ Machine learning approaches are tend to either be supervised or unsupervised.
 
   - when there is availability of large amounts of raw data that can be learned from
   - when there exist satisfactory feedback mechanisms to facilitate unsupervised learning
-  - (and also when labelled data can be transformed and curated into labelled data without a whole lot of hiccups)
+  - (and also, when labelled data can be transformed and curated into labelled data without a whole lot of hiccups)
 
-  One field that satisfies all of these requirements is Natural Language processing -
+  One field that satisfies all these requirements is Natural Language processing -
 
   1. Availability of large amounts of raw data - Large amounts of written down, digital representations of language, i.e. text, is basically what the internet is. I don't think more needs to be said here.
-  2. Existence of satisfactory feedback mechanisms to facilitate unsupervised learning - Academia has been doing unsupervised learning in the field of Natural Language Processing for years. The process in which word vectors and language models are learnt - the process of capturing meaning of words in a vector of floating point numbers by providing lots of examples of how the words are used in the natural language *is* unsupervised learning.
-  3. Ease of transformation and curation of labelled data into unlabelled data - more on this in the review of related work and the approach and summary of methods sections below.
+  2. Existence of satisfactory feedback mechanisms to facilitate unsupervised learning - Academia has been doing unsupervised learning in the field of Natural Language Processing for years. The process in which word vectors and language models are learnt - the process of capturing meaning of words in a vector of floating-point numbers by providing lots of examples of how the words are used in the natural language *is* unsupervised learning.
+  3. Ease of transformation and curation of labelled data into unlabeled data - more on this in the review of related work and the approach and summary of methods sections below.
 
 ## Background
 
 ### Language Models
 
-Traditionally, language models refer to statistical language models which can be thought of as a probability distribution over a sequences of words. Given a sequence of words (sentence, sentences, etc.), a statistical language model tells us the probability of that sequence of words existing in this language.
+Traditionally, language models refer to statistical language models which can be thought of as a probability distribution over a sequence of words. Given a sequence of words (sentence, sentences, etc.), a statistical language model tells us the probability of that sequence of words existing in this language.
 
 For instance, an English language model would assign `I love dogs` a higher probability than `I dogs love`. 
 
@@ -114,7 +114,7 @@ But `A` is still more *natural* or more *sensible* than `B`, since `A` would mak
 
 What we're trying to argue is that if language models are good enough, they can also be thought of as *Sensibility Models* or at least *Common Sense Models*.
 
-Even if you do agree with everything that was just said, you would still doubt the feasibility or practicality of training a model that was actually a good Sensibility model or Common Sense Model. These are good doubts to have, but thankfully there are researchers who have done work to support this way of thinking.
+Even if you do agree with everything that was just said, you would still doubt the feasibility or practicality of training a model that was actually a good Sensibility model or Common-Sense Model. These are good doubts to have, but thankfully there are researchers who have done work to support this way of thinking.
 
 > Neural language models are different than statistical language models in the sense that the task neural language models are trained to do is to predict the next word after a sequence of words or predict the missing words in a sequence. 
 > 
@@ -152,7 +152,7 @@ Even if you do agree with everything that was just said, you would still doubt t
 
 - **[Exploring the limits of language modeling](https://arxiv.org/abs/1602.02410):**
 
-  This research dedicatedly explored different techniques like character convolutional network, Long-Short term memory, etc to deal with challenges like corpora and vocabulary sizes and complex long term structure of language. They demonstrated how the state-of-art model performed significantly better using lesser number of parameters. They scaled RNN based language models on 1 billion word benchmark to outperform competing models including tuned N-grams. This study helped us understand the state-of-art model better and how language models can be further improved using correct softmax approximations with important sampling. We were also able to extend our understanding of the regularization concept much deeply.
+  This research dedicatedly explored different techniques like character convolutional network, Long-Short term memory, etc. to deal with challenges like corpora and vocabulary sizes and complex long-term structure of language. They demonstrated how the state-of-art model performed significantly better using lesser number of parameters. They scaled RNN based language models on 1 billion word benchmark to outperform competing models including tuned N-grams. This study helped us understand the state-of-art model better and how language models can be further improved using correct softmax approximations with important sampling. We were also able to extend our understanding of the regularization concept much deeply.
 
 ## The Problem
 
@@ -162,7 +162,7 @@ We intend to use generative language models to solve Natural language Understand
 
 ### Motivation
 
-As we've discussed above, recent work done is NLP proves that generative language models can indeed act as Sensibility Models, or act as though they're *intelligent*.
+As we've discussed above, recent work done is NLP proves that generative language models can indeed act as Sensibility Models or act as though they're *intelligent*.
 
 That being said, the work done does not explore how best to train a generative language model to do a certain NLP task; the three major inspirations for our work ([McCann et al. 2018](https://arxiv.org/abs/1901.11373), [Radford et al. 2019](https://d4mucfpksywv.cloudfront.net/better-language-models/language_models_are_unsupervised_multitask_learners.pdf), and [Yogatama et al. 2019](https://arxiv.org/abs/1901.11373)) have focused on Multitask learning, and have made no special efforts in coercing language models to perform better at a certain task.
 
@@ -239,7 +239,7 @@ Sentences like these are probably more likely to occur in WebText, and GPT2 shou
 
 1. We'll first evaluate how GPT2 performs out-of-the-box, without any fine-tuning, on various ways of casting our labelled data into question-answer pairs, or utterance-prompt pairs.
 2. We'll then proceed to split the dataset into training and testing.
-3. We'll train GPT2 on casted training data, and evaluate it's performance on testing data.
+3. We'll train GPT2 on casted training data and evaluate its performance on testing data.
 4. We'll repeat step 3 for as many question-answer, utterance-prompt pairs we can think of.
 
 #### Performance metrics
@@ -258,11 +258,11 @@ Which restaurant?
 . new east: . newg $
 ```
 
-The prediction the model made was `. new east: . newg $`. While it is nonsensical, it is still commendable that the model managed to get one part of the restaurant's name `east` in it's answer - without any actual training about restaurants or question answering, etc. Let's also not forget that GPT2-1542M (the largest model that achieved state of art results) is about `13.179` times larger than GPT2-117M - the model we're using.
+The prediction the model made was `. new east: . newg $`. While it is nonsensical, it is still commendable that the model managed to get one part of the restaurant's name `east` in its answer - without any actual training about restaurants or question answering, etc. Let's also not forget that GPT2-1542M (the largest model that achieved state of art results) is about `13.179` times larger than GPT2-117M - the model we're using.
 
 Which brings us to our question. How do we evaluate how well the model did?
 
-We've come up with our own way of evaluating it's performance. It goes as follows -
+We've come up with our own way of evaluating its performance. It goes as follows -
 
 1. Strip the generated sentence of any words that do not occur in the original user's utterance. This is due to the fact that this is a slot filling problem, and all the words that could be the answer, always occur in the user utterance.
 2. Count the number of words that occur in the prediction that also occur in the actual answer as a percentage. If the percentage is 100%, then the model got the answer completely right.
@@ -296,7 +296,6 @@ All of this is conjecture at this point, after we do more work and have more res
 ![New Timeline](new_timeline.svg)
 
 ### Updated Division of Work
-
 |                                             Task                                             |           Person Assigned          |
 |:--------------------------------------------------------------------------------------------:|:----------------------------------:|
 | NLP,Language models                                                                          |                 All                |
@@ -313,17 +312,19 @@ All of this is conjecture at this point, after we do more work and have more res
 
 ## Reflections
 
-We made a lot of mistakes in our Project Proposal. Most of it was due to the fact we linked to a lot of papers and articles in the proposal and expected to reader to have read them, and did not provide a summary of what material was in the link. As a result it was really ambiguous as to what we were actually proposing, what was already done by others, and how we intend to do it.
+The first thing we worked upon in the report is presenting our views on what we have studied so far. Instead of linking papers and articles, we have articulated our views on the papers and what we learned from them. The concepts we grasped from every article we read has been stated clearly. Thus, this time we have tried to put forward our point of view and how we are approaching the problem instead.
 
-This time around we have a *very comprehensive* introduction and background, and have tried to explain as much as we could about what we are actually proposing, what has already done by others, and how we intend to do it. In fact, we may have written a bit too much, and reading all of this would take up a lot of your time. Sorry about that.
+Also, due to lack of articulation, we failed at conveying our idea well. Thus, time we are presenting a more detailed and comprehensive introduction and background, explaining what we are proposing and how were we able to come up with those ideas and concepts. We have also planned our method of approaching the problem in a different manner such that we are able to work in an organized manner giving everybody a chance to put forward their best efforts. The text might seem too long, but we tried to display as much knowledge as we could through our report.
 
-Other things we were missing were detailed timelines and division of work, proper references and citation, and a proper summary of related papers (we only copy-pasted the abstract last time.)
+Other things we were missing were detailed timelines and division of work, proper references and citation, and a proper summary of related papers. This time we have worked on all the sections to deliver the right product.
 
-We have tried to fix all of the above too, and hope that you find it satisfactory this time around.
+We appreciate the feedback given to us as it really motivated us to improve and study deeply. We have tried to consider all the feedback given and we hope that we were able to fulfill the expectations.
 
 ### Differences and novelty
 
-We believe the motivation, approach, and summary of methods sections has sufficiently detailed how our proposed work would differ from the work that has already being done. Our proposed work is unusual for a project because it is more of a analytical study than an application of something. But we hope you find it interesting enough to let it go.
+As we continue to take inspiration and learn from the research done in the world, we have tried to put forward some different aspects. In [5] the model is given questions and context separately while we and implementing a model where we do not tell the model which part of the sequence is the question and which one i context. Similarly, in [3] researchers tested the performance of GPT2 in a zero-shot setting while we intend to re-use the smallest GPT2 model released by them and attempt to fine-tune it by casting our labelled NLU dataset as question-answer pairs in natural language.
+
+Our proposed work is unusual for a project because it is more of a analytical study than an application of something. Our worked is inspired by the research we have seen around and thus we cannot say that our work is novel. But we are trying to make the existing models a little better by implementing certain concepts that we have studied. But we hope that our work is able to do some contribution in the field of research as we continue to learn and work on making it better.
 
 ## References and Citation
 
