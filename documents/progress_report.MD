@@ -278,6 +278,36 @@ All of this is conjecture at this point, after we do more work and have more res
 
 ## Reflections
 
+We made a lot of mistakes in our Project Proposal. Most of it was due to the fact we linked to a lot of papers and articles in the proposal and expected to reader to have read them, and did not provide a summary of what material was in the link. As a result it was really ambiguous as to what we were actually proposing, what was already done by others, and how we intend to do it.
+
+This time around we have a *very comprehensive* introduction and background, and have tried to explain as much as we could about what we are actually proposing, what has already done by others, and how we intend to do it. In fact, we may have written a bit too much, and reading all of this would take up a lot of your time. Sorry about that.
+
+Other things we were missing were detailed timelines and division of work, proper references and citation, and a proper summary of related papers (we only copy-pasted the abstract last time.)
+
+We have tried to fix all of the above too, and hope that you find it satisfactory this time around.
+
 ### Differences and novelty
 
+We believe the motivation, approach, and summary of methods sections has sufficiently detailed how our proposed work would differ from the work that has already being done. Our proposed work is unusual for a project because it is more of a analytical study than an application of something. But we hope you find it interesting enough to let it go.
+
 ## References and Citation
+
+[1] “Better Language Models and Their Implications.” OpenAI, 14 Feb. 2019, https://openai.com/blog/better-language-models/.
+
+[2] Coucke, Alice. “Benchmarking Natural Language Understanding Systems: Google, Facebook, Microsoft, Amazon, and Snips.” Medium, 2 June 2017, https://medium.com/snips-ai/benchmarking-natural-language-understanding-systems-google-facebook-microsoft-and-snips-2b8ddcf9fb19.
+
+[3] Radford, A.; Wu, J.; Child, R.; Luan, D.; Amodei, D. & Sutskever, I. (2018), 'Language Models are Unsupervised Multitask Learners', .
+
+[4] Radosavovic, Ilija et al. “Data Distillation: Towards Omni-Supervised Learning.” 2018 IEEE/CVF Conference on Computer Vision and Pattern Recognition (2018): 4119-4128.
+
+[5] McCann, Bryan et al. “The Natural Language Decathlon: Multitask Learning as Question Answering.” CoRR abs/1806.08730 (2018): n. Pag.
+
+[6] Ruder, Sebastian and Jeremy Howard. “Universal Language Model Fine-tuning for Text Classification.” ACL (2018).
+
+[7] Jozefowicz, R., Vinyals, O., Schuster, M., Shazeer, N., and Wu, Y. Exploring the limits of language modeling. arXiv preprint arXiv:1602.02410, 2016.
+
+[8] Dai, A. M. and Le, Q. V. Semi-supervised sequence learning. In Advances in neural information processing systems, pp. 3079– 3087, 2015.
+
+[9] Yogatama, Dani et al. “Learning and Evaluating General Linguistic Intelligence.” CoRRabs/1901.11373 (2019): n. Pag.
+
+[10] Contribute to Snipsco/Nlu-Benchmark Development by Creating an Account on GitHub. 2016. Snips, 2019. GitHub, https://github.com/snipsco/nlu-benchmark.
