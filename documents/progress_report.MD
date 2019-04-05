@@ -278,13 +278,13 @@ All of this is conjecture at this point, after we do more work and have more res
 
 ## Reflections
 
-We made a lot of mistakes in our Project Proposal. Most of it was due to the fact we linked to a lot of papers and articles in the proposal and expected to reader to have read them, and did not provide a summary of what material was in the link. As a result it was really ambiguous as to what we were actually proposing, what was already done by others, and how we intend to do it.
+The first thing we worked upon in the report is presenting our views on what we have studied so far. Instead of linking papers and articles, we have articulted our views on the papers and what we learned from them. The concepts we grasped from every article we read has been stated clearly. Thus, this time we have tried to put forward our point of view and how we are approaching the problem instead.
 
-This time around we have a *very comprehensive* introduction and background, and have tried to explain as much as we could about what we are actually proposing, what has already done by others, and how we intend to do it. In fact, we may have written a bit too much, and reading all of this would take up a lot of your time. Sorry about that.
+Also, due to lack of articulation, we failed at conveying our idea well. Thus time time we are presenting a more detailed and comprehensive introduction and background, explaining what we are proposing and how were we able to come up with those ideas and concepts. We have also planned our method of approaching the problem in a different manner such that we are able to work in an organised manner giving everybody a chance to put forward their best efforts. The text might seem too long but we tried to display as much knowledge as we could through our report.
 
-Other things we were missing were detailed timelines and division of work, proper references and citation, and a proper summary of related papers (we only copy-pasted the abstract last time.)
+Other things we were missing were detailed timelines and division of work, proper references and citation, and a proper summary of related papers. This time we have worked on all the sections to deliver the right product.
 
-We have tried to fix all of the above too, and hope that you find it satisfactory this time around.
+We appreciate the feedback given to us as it really motivated us to improve and study deeply. We have tried to consider all the feedback given and we hope that we were able to fulfill the expectations.
 
 ### Differences and novelty
 
