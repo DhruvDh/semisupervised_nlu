@@ -302,10 +302,10 @@ All of this is conjecture at this point, after we do more work and have more res
 | Neural Networks, Best Practices                                                              |                 All                |
 | Preparing data for training                                                                  |   Bhavya Chawla and Saloni Gupta   |
 | Evaluating performance of GPT2 without fine tuning                                           | Dhruv Dhamani and Himanshu Dhawale |
-| Finetune GPT2 with training data (For Intents :Add to playlist, Book Restaurant)             |            Bhavya Chawla           |
-| Finetune GPT2 with training data (For Intents :Get weather, Play Music)                      |            Saloni Gupta            |
-| Finetune GPT2 with training data (For Intents :Rate Book)                                    |          Himanshu Dhawale          |
-| Finetune GPT2 with training data (For Intents :Search Creative Work, Search Screening event) |            Dhruv Dhamani           |
+| Finetune GPT2 with training data (For intents AddToPlaylist, BookRestaurant)             |            Bhavya Chawla           |
+| Finetune GPT2 with training data (For intents GetWeather, PlayMusic)                      |            Saloni Gupta            |
+| Finetune GPT2 with training data (For intents RateBook)                                    |          Himanshu Dhawale          |
+| Finetune GPT2 with training data (For intents SearchCreativeWork, SearchScreeningEvent) |            Dhruv Dhamani           |
 | Evaluation and Analysis of results                                                           |          Himanshu Dhawale          |
 | Poster Presentation                                                                          | Dhruv Dhamani and Himanshu Dhawale |
 | Final Report                                                                                 |   Saloni Gupta and Bhavya Chawla   |
