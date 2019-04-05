@@ -297,7 +297,7 @@ All of this is conjecture at this point, after we do more work and have more res
 
 ### Updated Division of Work
 |                                             Task                                             |           Person Assigned          |
-|:--------------------------------------------------------------------------------------------:|:----------------------------------:|
+|--------------------------------------------------------------------------------------------|:----------------------------------:|
 | NLP,Language models                                                                          |                 All                |
 | Neural Networks, Best Practices                                                              |                 All                |
 | Preparing data for training                                                                  |   Bhavya Chawla and Saloni Gupta   |
