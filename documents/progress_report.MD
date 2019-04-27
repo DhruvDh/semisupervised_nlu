@@ -102,8 +102,8 @@ Let's say the model assigns a probability `0.0000000473` to the `A` and `0.00000
 
 Let's take things a step further and consider the next two sentences -
 ```
-A. I love dogs so I got one.
-B. I love dogs so Canada sucks.
+A. I love dogs. That is why I got one.
+B. I love dogs. That is why Canada sucks.
 ```
 
 What sort of score would a perfect, ideal language model assign to these sentences? They both seem grammatically correct, so the scores of both would probably be on the higher side. But which sentence is more _natural_? Probably the same sentence which is more sensible?
