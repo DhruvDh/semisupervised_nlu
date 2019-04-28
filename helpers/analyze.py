@@ -268,24 +268,31 @@ for intent in intents:
 
     test_data[intent] = data[intent]['df'].tail(int(len(data[intent]['df'])*(1.0-split_at)))
 
-
-
+from random import shuffle
 with open(os.path.join('..', 'data', 'train.txt'), 'w', encoding='utf-8') as f:
+    train_list = []
     for i, intent in enumerate(intents):
         for index, row in train_data[intent].iterrows():
             for question in questions[i]:
                 if "?" in question:
-                    f.write(row['text'] + '\n' + question + '\n' + str(row[entities[i]]) + '\n\n')
+                    train_list.append(row['text'] + '\n' + question + '\n' + str(row[entities[i]]) + "\n\n")
                 else:
-                    f.write(row['text'] + '\n' + question + ' ' + str(row[entities[i]]) + '\n\n')
+                    train_list.append(row['text'] + '\n' + question + ' ' + str(row[entities[i]]) + "\n\n")
+    shuffle(train_list)
+    f.writelines(train_list)
+
+    
 
 
 
 with open(os.path.join('..', 'data', 'test.txt'), 'w', encoding='utf-8') as f:
+    test_list = []
     for i, intent in enumerate(intents):
         for index, row in test_data[intent].iterrows():
             for question in questions[i]:
                 if "?" in question:    
-                    f.write(row['text'] + '\n' + question + '\n' + str(row[entities[i]]) + '\n\n')  
+                    test_list.append(row['text'] + '\n' + question + '\n' + str(row[entities[i]]) + '\n\n')  
                 else:
-                    f.write(row['text'] + '\n' + question + ' ' + str(row[entities[i]]) + '\n\n')          
+                    test_list.append(row['text'] + '\n' + question + ' ' + str(row[entities[i]]) + '\n\n')     
+    shuffle(test_list)
+    f.writelines(test_list)     
