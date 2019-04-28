@@ -182,22 +182,41 @@ def clean_and_get_creative_work(row):
         return work.strip()
 
 
-def clean_and_get_event_location(row):
+def clean_and_get_event (row):
     location = ''
 
     if not pd.isna(row['object_type']):
         location += ' the ' + row['object_type']
-        if not pd.isna(row['object_name']):
-            location += ' ' + row['object_name']
+        if not pd.isna(row['movie_type']):
+            location += ' for ' + row['movie_type']
+        elif not pd.isna(row['movie_name']):
+            location += ' for ' + row['movie_name']
     
-    else:
-        if not pd.isna(row['object_name']):
-            location += ' ' + row['object_name']
+    elif not pd.isna(row['movie_type']):
+        location += row['movie_type']
+        if not pd.isna(row['movie_name']):
+            location += ' called ' + row['movie_name']
+        
+    elif not pd.isna(row['movie_name']):
+        location += row['movie_name']
     
+    if not pd.isna(row['spatial_relation']):
+        location += ' ' + row['spatial_relation']
+        if not pd.isna(row['object_location_type']):
+            location += ' ' + row['object_location_type']
+        elif not pd.isna(row['location_name']):
+            location += ' ' + row['location_name']
+
+    elif not pd.isna(row['object_location_type']):
+        location += ' at a ' + row['object_location_type']
+
+    if not pd.isna(row['location_name']):
+        location += ' at ' + row['location_name']
+
     if location == '':
         return np.NaN
     else:
-        return work.strip()
+        return location.strip()
 
 
 data['AddToPlaylist']['df']['playlist'] = data['AddToPlaylist']['df'].apply(
@@ -217,15 +236,56 @@ data['RateBook']['df']['rating'] = data['RateBook']['df'].apply(
     
 data['SearchCreativeWork']['df']['work'] = data['SearchCreativeWork']['df'].apply(
     clean_and_get_creative_work, axis=1)
-print(data['SearchCreativeWork']['df']['work'])
-# print(data['BookRestaurant']['df']['spatial_relation'].unique())
+    
+data['SearchScreeningEvent']['df']['event'] =  data['SearchScreeningEvent']['df'].apply(
+    clean_and_get_event, axis=1)
 
+questions = [
+    ['Which playlist?', 'Where should I add?', 'What should I add to?', 'What was the playlist?', 'I will add it to'],
+    ['Where do they want to eat?', 'Which place?', 'Which eatery?', 'Where?', 'I will book a table at'],
+    ['Where?', 'Which location?', 'I will tell you the weather for'],
+    ['What should I play?', 'What do you want to hear?','I will play'],
+    ['What much should I rate?', 'What is the rating?', 'How would they like to rate it?', 'Rate how much?', 'I will rate it'],
+    ['Find what?', 'What should I look for?','I will find', 'I will look for', 'I will try to find', 'I will try to look for'],
+    ['Find what?', 'What should I look for?','I will find', 'I will look for', 'I will try to find', 'I will try to look for'],
+]
 
-questions = []
 entities = [
     'playlist',
     'place',
     'location',
     'music',
-    ''
+    'rating',
+    'work',
+    'event'
 ]
+
+train_data = {}
+test_data = {}
+split_at = 0.8
+for intent in intents:
+    train_data[intent] = data[intent]['df'].head(int(len(data[intent]['df'])*split_at))
+
+    test_data[intent] = data[intent]['df'].tail(int(len(data[intent]['df'])*(1.0-split_at)))
+
+
+
+with open(os.path.join('..', 'data', 'train.txt'), 'w', encoding='utf-8') as f:
+    for i, intent in enumerate(intents):
+        for index, row in train_data[intent].iterrows():
+            for question in questions[i]:
+                if "?" in question:
+                    f.write(row['text'] + '\n' + question + '\n' + str(row[entities[i]]) + '\n\n')
+                else:
+                    f.write(row['text'] + '\n' + question + ' ' + str(row[entities[i]]) + '\n\n')
+
+
+
+with open(os.path.join('..', 'data', 'test.txt'), 'w', encoding='utf-8') as f:
+    for i, intent in enumerate(intents):
+        for index, row in test_data[intent].iterrows():
+            for question in questions[i]:
+                if "?" in question:    
+                    f.write(row['text'] + '\n' + question + '\n' + str(row[entities[i]]) + '\n\n')  
+                else:
+                    f.write(row['text'] + '\n' + question + ' ' + str(row[entities[i]]) + '\n\n')          
