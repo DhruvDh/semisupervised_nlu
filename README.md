@@ -47,7 +47,7 @@ Machine learning approaches are tending to either be supervised or unsupervised.
   
   When we say *semi-supervised* what we mean is that we're going to take pre-existing labelled, classified or categorized data - the kind of data one uses for *supervised learning*, and transform and curate it into unlabeled data - the kind of data one uses for *unsupervised learning* - with the transformation or curation being done *on the basis of the labels of our pre-existing labelled data*, and then use this curated data for training our model.
 
-  **Why would anyone do such a thing?** 
+  __Why would anyone do such a thing?__ 
   
   Well, the motivation is simple. One could argue that as a general rule, there is a lot more unlabeled data in existence than labelled data. Thereby, if one creates a machine learning system that learns by use of unlabelled data, it is always going to have more data to learn from than a system that is based on learning from labelled data.
 
