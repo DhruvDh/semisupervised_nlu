@@ -137,9 +137,9 @@ Even if you do agree with everything that was just said, you would still doubt t
 
 - __[XLNet: Generalized Autoregressive Pretraining for Language Understanding](https://arxiv.org/abs/1906.08237):__
 
- [7] Here, the authors hypothesize on a possible problem with BERT's pretraining objective which they believe causes "data corruption". They do not like the fact that BERT's pretraining objective assusmes the masked words are indpendent given the unmasked words. As a solution to this problem they propose a novel "dual-masking-plus-caching mechanism to induce an attention-based model to learn to predict tokens from all possible permutations of the factorization order of all other tokens in the same input sequence." At the end they demonstrate that their model achieves modest gains over results from the orignal BERT paper.
+ [7] Here, the authors hypothesize on a possible problem with BERT's pretraining objective which they believe causes "data corruption". They do not like the fact that BERT's pretraining objective assumes the masked words are independent given the unmasked words. As a solution to this problem they propose a novel "dual-masking-plus-caching mechanism to induce an attention-based model to learn to predict tokens from all possible permutations of the factorization order of all other tokens in the same input sequence." At the end they demonstrate that their model achieves modest gains over results from the orignal BERT paper.
 
- > While I agree that BERTs masking of multiple input words might entail that sometimes the required information to predict a certain masked word lie in another masked word, I do not believe it is as much of a problem as the authors make it out to be. There are other, far more convinient, ways to work this problem as we'll see in the next paper. It must also be noted that while XLNet boasts of modest gains over BERT, they've trained on significantly more data (~16GB vs ~33GB) and used significantly more compute to acheive said gains, making any comparision meaningless. I do not believe this to be a fair comparision.
+ > While I agree that BERTs masking of multiple input words might entail that sometimes the required information to predict a certain masked word lie in another masked word, I do not believe it is as much of a problem as the authors make it out to be. There are other, far more convinient, ways to work this problem as we'll see in the next paper. It must also be noted that while XLNet boasts of modest gains over BERT, they've trained on significantly more data (~16GB vs ~33GB) and used significantly more compute to acheive said gains, making any comparison meaningless. I do not believe this to be a fair comparison.
 
  - __[RoBERTa: A Robustly Optimized BERT Pretraining Approach](https://arxiv.org/abs/1907.11692):__
 
@@ -207,12 +207,13 @@ The `[...]` part is where the generative language model starts predicting the ne
 
 However, the dataset our generative language model is trained on probably does not have many examples of such question-answer pairs occurring in it. It is composed mostly of news articles, blog posts, etc. As such we hypothesize such an approach would not end up working out that well, without fine-tuning. How the model would perform after fine-tuning, well, I think we'll know only after doing it.
 
-Another way to accomplish this same task would be to prompt the model into giving us an answer. We hypothesize that this would work better. For example -
+Another way to accomplish this same task would be to prompt the model into giving us an answer. I hypothesize that this would work better. For example -
 
 - `Book a spot for three at Maid-Rite Sandwich Shop in Antigua and Barbuda. I'll book a table for you at [...]`
 - `Book a spot for three at Maid-Rite Sandwich Shop in Antigua and Barbuda. I'll book a table for [...]` 
 
-Sentences like these are probably more likely to occur in WebText, and GPT2 shouldn't suck at this initially, without any fine-tuning. What happens after fine-tuning is something we'll know only after fine-tuning.
+
+I would be using a pretrained RoBERTa as our language model, and attempt to fine-tune it and see how much better we can get it to work.
 
 ## Performance metrics
 
@@ -222,7 +223,7 @@ Evaluating how a generative language model is performing at such tasks isn't str
 
 This is an actual sample from the `BookRestaurant` intent. We paired this with the question `Which restaurant?`, and fed it to GPT2-117M (117M represents the number of parameters - 117 million) as-is without any fine-tuning.
 
-This is what we got back from the model -
+This is what I got back from the model -
 
 ```
 book The Middle East restaurant in IN for noon
@@ -232,15 +233,7 @@ Which restaurant?
 
 The prediction the model made was `. new east: . newg $`. While it is nonsensical, it is still commendable that the model managed to get one part of the restaurant's name `east` in its answer - without any actual training about restaurants or question answering, etc.
 
-Which brings us to our question. How do we evaluate how well the model did?
-
-We've come up with our own way of evaluating its performance. It goes as follows -
-
-1. Strip the generated sentence of any words that do not occur in the original user's utterance. This is due to the fact that this is a slot filling problem, and all the words that could be the answer, always occur in the user utterance.
-2. Count the number of words that occur in the prediction that also occur in the actual answer as a percentage. If the percentage is 100%, then the model got the answer completely right.
-3. Plot all the percentages for each way of casting labelled data and for each slot, as a distribution of values. Use the mean and standard deviation of these distributions as metrics of performance.
-
-All of this is conjecture at this point, after we do more work and have more results, we'll have a better idea of how best to evaluate the performance of the language model. We also invite ideas from you, since we're not really sure how best to go about it.
+I intend to use BLEU (bilingual evaluation understudy) score as a metric for performance. This algorithm would be used to compare the generated answer with the actual answer.
 
 ## Logistics
 
