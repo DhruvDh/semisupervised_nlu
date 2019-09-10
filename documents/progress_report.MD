@@ -1,5 +1,8 @@
 # Semi-supervised Natural Language Understanding
 
+- Dhruv Dhamani
+- ddhamani@uncc.edu
+
 ## Table of Contents
 
 - [Semi-supervised Natural Language Understanding](#semi-supervised-natural-language-understanding)
@@ -25,15 +28,6 @@
     - [Differences and novelty](#differences-and-novelty)
   - [References and Citation](#references-and-citation)
 
-## Team
-
-- Team Name: Regrayshun
-- Team Members:
-  - Dhruv Dhamani (801084292) (ddhamani@uncc.edu)
-  - Saloni Gupta (sgupta38@uncc.edu)
-  - Himanshu Sunil Dhawale (hdhawale@uncc.edu)
-  - Bhavya Chawla (bchawla@uncc.edu)
-
 ## Introduction
 
 Let's break down the project title in two for clarity -
@@ -42,10 +36,10 @@ Let's break down the project title in two for clarity -
   
 Machine learning approaches are tending to either be supervised or unsupervised.
 
-  - A supervised approach as in we when have curated data with a clear expectation for what parts of the data are the *input* to the model and what part the model is supposed to predict/infer or present as an *output*.
-  - In general, unsupervised approaches mean that the data we have has not been labelled, classified or categorized. Instead, we create some sort of a feedback mechanism for the model which helps it identify commonalities in the data and react based on the presence or absence of such commonalities in each new piece of data.
+  - A supervised approach as in when you have curated data with a clear expectation for what parts of the data are the *input* to the model and what part the model is supposed to predict/infer or present as an *output*.
+  - In general, unsupervised approaches mean that the data being used has not been labelled, classified or categorized. Instead, we create some sort of a feedback mechanism for the model which helps it identify commonalities in the data and react based on the presence or absence of such commonalities in each new piece of data.
   
-  When we say *semi-supervised* what we mean is that we're going to take pre-existing labelled, classified or categorized data - the kind of data one uses for *supervised learning*, and transform and curate it into unlabeled data - the kind of data one uses for *unsupervised learning* - with the transformation or curation being done *on the basis of the labels of our pre-existing labelled data*, and then use this curated data for training our model.
+  When I say *semi-supervised* what I mean is that I intend going to take pre-existing labelled, classified or categorized data - the kind of data one uses for *supervised learning*, and transform and curate it into unlabeled data - the kind of data one uses for *unsupervised learning* - with the transformation or curation being done *on the basis of the labels of our pre-existing labelled data*, and then use this curated data for training our model.
 
   **Why would anyone do such a thing?** 
   
@@ -85,7 +79,7 @@ Traditionally, language models refer to statistical language models which can be
 
 For instance, an English language model would assign `I love dogs` a higher probability than `I dogs love`. 
 
-**Why is this important? **
+__Why is this important?__
 
 In a way, language models assign a sensibility score or a naturalness score. This is due to the fact that the language models are trained with lots of sensible and natural sentences (ideally), and if so it is obvious that sentences like `I love dogs` (a sensible sentence) has a much higher probability in occurring the data the model has been trained with than `I dogs love` (a nonsensical one).
 
@@ -112,9 +106,9 @@ Let's read sentence `A` again. Getting a dog because you love dogs is a sensible
 
 But `A` is still more *natural* or more *sensible* than `B`, since `A` would make sense in most contexts, while `B` only makes sense in some contexts.
 
-What we're trying to argue is that if language models are good enough, they can also be thought of as *Sensibility Models* or at least *Common Sense Models*.
+What I am trying to argue is that if language models are good enough, they can also be thought of as *sensibility models* or at least *common-sense models*.
 
-Even if you do agree with everything that was just said, you would still doubt the feasibility or practicality of training a model that was actually a good Sensibility model or Common-Sense Model. These are good doubts to have, but thankfully there are researchers who have done work to support this way of thinking.
+Even if you do agree with everything that was just said, you would still doubt the feasibility or practicality of training a model that was actually a good "sensibility" model or "common-sense" model. These are good doubts to have, but thankfully there are researchers who have done work to credence this sort of thought process.
 
 > Neural language models are different than statistical language models in the sense that the task neural language models are trained to do is to predict the next word after a sequence of words or predict the missing words in a sequence. 
 > 
@@ -128,7 +122,7 @@ Even if you do agree with everything that was just said, you would still doubt t
 
  [5] The focus of this paper was on introducing a new benchmark for measuring the performance of NLP models. They presented MQAN model for simple question answering which capitalizes on questions with the help of a multi-pointer-generator decoder. They demonstrated how labelled data can be used to train a language model to perform multiple tasks by casting all tasks as question-answers over a context. We are using this concept to understand the question answer mechanism in order to make the model extract the correct query to perform slot filling.
 
-  However, the MQAN model this paper used takes the questions and the context as inputs separately, while we do not want to tell the model which part of the sequence is the question and which part is the context. 
+  However, the MQAN model this paper used takes the questions and the context as inputs separately, while we ideally do not want to explicitly tell the model which part of the sequence is the question and which part is the context so as to retain "naturalness" and also to minimize the amount work that needs to be done to adapt a model to a different task. 
 
   | ![MQAN model](MQAN.png) | 
   |:--:| 
@@ -138,37 +132,30 @@ Even if you do agree with everything that was just said, you would still doubt t
 
  [9] This paper defines general linguistic intelligence as the ability to reuse previously acquired knowledge about a language’s lexicon, syntax, semantics, and pragmatic conventions to adapt to new tasks quickly. Using this definition, they analyze state-of-the-art natural language understanding models and perform experiments to evaluate them against these criteria through a series of experiments that assess the task-independence of the knowledge being acquired by the learning process. The results show that while the field has made impressive progress in terms of model architectures that generalize to many tasks, these models still require a lot of in-domain training examples (fine tuning, training task-specific modules), and are prone to catastrophic forgetting. Moreover, they find that far from solving general tasks (e.g., document question answering), the models are overfitting to the quirks of particular datasets (like SQuAD).
 
-  The authors also write that they believe *"generative language models will drive progress on general linguistic intelligence"*. What they call general linguistic intelligence is conceptually not all that different from what we described as a model of Sensibility above.
+  The authors also write that they believe *"generative language models will drive progress on general linguistic intelligence"*. What they call general linguistic intelligence is conceptually not all that different from what I attempted to describe as a model of sensibility above.
 
 - **[Language models are Unsupervised Multitask Learners](https://d4mucfpksywv.cloudfront.net/better-language-models/language_models_are_unsupervised_multitask_learners.pdf):**
 
- [3] This paper is where the feasibility and practicality of language models being *intelligent* is proven. The authors first construct a high-quality dataset of millions of human-curated web-pages called WebText. They then proceed to train a modified version of the original Generative Pre-trained Transformer (GPT), called Generative Pre-Trained Transformer 2 on WebText, and demonstrate how the model - without any explicit supervision - achieves state of art results on 7 out of 8 tested language modeling datasets in a zero-shot setting but still underfits WebText.
+ [3] This paper is where the feasibility and practicality of language models being "intelligent" is demonstrated. The authors first construct a high-quality dataset of millions of human-curated web-pages called WebText. They then proceed to train a modified version of the original Generative Pre-trained Transformer (GPT), called Generative Pre-Trained Transformer 2 on WebText, and demonstrate how the model - without any explicit supervision - achieves state of art results on 7 out of 8 tested language modeling datasets in a zero-shot setting but still underfits WebText.
 
-  While the authors tested the performance of GPT2 in a zero-shot setting, we intend to re-use the smallest GPT2 model released by the authors and attempt to fine-tune it by casting our labelled NLU dataset as question-answer pairs in natural language; more on this later.
 
 - **[Universal Language Model Fine-tuning for Text Classification](https://arxiv.org/abs/1801.06146):**
 
  [6] This paper is directed towards understanding how lack of knowledge about fine tuning can be a hindrance. The researchers have presented various novel fine tuning techniques to achieve effective results like discriminative fine-tuning, target task classifier fine-tuning, etc. They have also defined a Universal Language Model Fine-Tuning(ULMFiT) method to make robust models. This method comprises of three stages, firstly, LM is trained on a general domain corpus for capturing general features of the language, then the LM is fine-tuned using discriminative fine-tuning and slanted triangular learning rates. Finally the classifier is fine-tuned on target task using gradual freezing. The ULMFiT was able to achieve state-of-the-art performance on widely used text classification tasks.   
 
-- **[Exploring the limits of language modeling](https://arxiv.org/abs/1602.02410):**
+- __[XLNet: Generalized Autoregressive Pretraining for Language Understanding](https://arxiv.org/abs/1906.08237):__
 
- [7] This research dedicatedly explored different techniques like character convolutional network, Long-Short term memory, etc. to deal with challenges like corpora and vocabulary sizes and complex long-term structure of language. They demonstrated how the state-of-art model performed significantly better using lesser number of parameters. They scaled RNN based language models on 1 billion word benchmark to outperform competing models including tuned N-grams. This study helped us understand the state-of-art model better and how language models can be further improved using correct softmax approximations with important sampling. We were also able to extend our understanding of the regularization concept much deeply.
+ [7] Here, the authors hypothesize on a possible problem with BERT's pretraining objective which they believe causes "data corruption". They do not like the fact that BERT's pretraining objective assusmes the masked words are indpendent given the unmasked words. As a solution to this problem they propose a novel "dual-masking-plus-caching mechanism to induce an attention-based model to learn to predict tokens from all possible permutations of the factorization order of all other tokens in the same input sequence." At the end they demonstrate that their model achieves modest gains over results from the orignal BERT paper.
 
-## The Problem
+ > While I agree that BERTs masking of multiple input words might entail that sometimes the required information to predict a certain masked word lie in another masked word, I do not believe it is as much of a problem as the authors make it out to be. There are other, far more convinient, ways to work this problem as we'll see in the next paper. It must also be noted that while XLNet boasts of modest gains over BERT, they've trained on significantly more data (~16GB vs ~33GB) and used significantly more compute to acheive said gains, making any comparision meaningless. I do not believe this to be a fair comparision.
 
-### Introduction
+ - __[RoBERTa: A Robustly Optimized BERT Pretraining Approach](https://arxiv.org/abs/1907.11692):__
 
-We intend to use generative language models to solve Natural language Understanding (NLU) tasks, as described above. More so than solving we want to analyze how good generative language models can be at this task, and think about the best way to cast a labelled dataset into question-answer pairs to solve this task. The language model we'll use is GPT2 as described above.
+  [11] RoBERTa iterates on BERT's pretraining procedure, including training the model longer, with bigger batches over more data; removing the next sentence prediction objective; training on longer sequences; and dynamically changing the masking pattern applied to the training data.
 
-### Motivation
+> As mentioned in the previous paper, BERT's pretraining objective does make a faulty assumption that the input words that it masks during training are independent of each other given the respective sequence of unmasked words. What I like the most about this work is that it works around this problem by changing the set of masked words for each iteration of training ensuring that a new set of masked words is presented to the model each time, reducing the negative effects of any loss of dependency information between masked words. It is also something I am somewhat skeptical of, since it also means that after enough iterations the model "sees" basically all of the training data, making it more likely to overfit. The paper boasts of consistent improvement on BERT on many tasks, so my concerns are probably unfounded.
 
-As we've discussed above, recent work done is NLP proves that generative language models can indeed act as Sensibility Models or act as though they're *intelligent*.
-
-That being said, the work done does not explore how best to train a generative language model to do a certain NLP task; the three major inspirations for our work ([McCann et al. 2018](https://arxiv.org/abs/1901.11373), [Radford et al. 2019](https://d4mucfpksywv.cloudfront.net/better-language-models/language_models_are_unsupervised_multitask_learners.pdf), and [Yogatama et al. 2019](https://arxiv.org/abs/1901.11373)) have focused on Multitask learning, and have made no special efforts in coercing language models to perform better at a certain task.
-
-We intend to choose one task - Natural Language Understanding/Inference - and try to evaluate the performance of various ways of casting the labelled data into question-answer pairs for the generative language model to be trained on, and see which ways perform the best, and think about why it does so. More on this in the approach and summary of methods section.
-
-### Dataset
+## Dataset
 
 The dataset focuses on seven *intents* (things a user could want to do) -
 * SearchCreativeWork (e.g. *Find me the I, Robot television show*),
@@ -226,7 +213,7 @@ The relevant slots that need to be filled here are `party_size_number`, and `res
 
 The `[...]` part is where the generative language model starts predicting the next few words, which ends up telling us how to fill the `restaurant_name` slot for the first example, and `party_size_number` for the second example.
 
-However, WebText, the dataset our generative language model is trained on, probably does not have many examples of such question-answer pairs occurring in it. It is composed mostly of news articles, blog posts, etc. As such we hypothesize such an approach would not end up working out that well, without fine-tuning. How the model would perform after fine-tuning, well, I think we'll know only after doing it.
+However, the dataset our generative language model is trained on probably does not have many examples of such question-answer pairs occurring in it. It is composed mostly of news articles, blog posts, etc. As such we hypothesize such an approach would not end up working out that well, without fine-tuning. How the model would perform after fine-tuning, well, I think we'll know only after doing it.
 
 Another way to accomplish this same task would be to prompt the model into giving us an answer. We hypothesize that this would work better. For example -
 
@@ -235,14 +222,7 @@ Another way to accomplish this same task would be to prompt the model into givin
 
 Sentences like these are probably more likely to occur in WebText, and GPT2 shouldn't suck at this initially, without any fine-tuning. What happens after fine-tuning is something we'll know only after fine-tuning.
 
-### Methods in more detail
-
-1. We'll first evaluate how GPT2 performs out-of-the-box, without any fine-tuning, on various ways of casting our labelled data into question-answer pairs, or utterance-prompt pairs.
-2. We'll then proceed to split the dataset into training and testing.
-3. We'll train GPT2 on casted training data and evaluate its performance on testing data.
-4. We'll repeat step 3 for as many question-answer, utterance-prompt pairs we can think of.
-
-#### Performance metrics
+## Performance metrics
 
 Evaluating how a generative language model is performing at such tasks isn't straight forward. For instance, consider the utterance -
 
@@ -258,7 +238,7 @@ Which restaurant?
 . new east: . newg $
 ```
 
-The prediction the model made was `. new east: . newg $`. While it is nonsensical, it is still commendable that the model managed to get one part of the restaurant's name `east` in its answer - without any actual training about restaurants or question answering, etc. Let's also not forget that GPT2-1542M (the largest model that achieved state of art results) is about `13.179` times larger than GPT2-117M - the model we're using.
+The prediction the model made was `. new east: . newg $`. While it is nonsensical, it is still commendable that the model managed to get one part of the restaurant's name `east` in its answer - without any actual training about restaurants or question answering, etc.
 
 Which brings us to our question. How do we evaluate how well the model did?
 
@@ -293,38 +273,7 @@ All of this is conjecture at this point, after we do more work and have more res
      Poster :2019-04-25, 5d 
       -->
 
-![New Timeline](new_timeline.svg)
-
-### Updated Division of Work
-|                                             Task                                             |           Person Assigned          |
-|--------------------------------------------------------------------------------------------|:----------------------------------:|
-| Learning about NLP, Language models                                                                          |                 All                |
-| Learning about Neural Networks, Best Practices                                                              |                 All                |
-| Preparing data for training                                                                  |   Bhavya Chawla and Saloni Gupta   |
-| Evaluating performance of GPT2 without fine tuning                                           | Dhruv Dhamani and Himanshu Dhawale |
-| Finetune GPT2 with training data (For intents AddToPlaylist, BookRestaurant)             |            Bhavya Chawla           |
-| Finetune GPT2 with training data (For intents GetWeather, PlayMusic)                      |            Saloni Gupta            |
-| Finetune GPT2 with training data (For intents RateBook)                                    |          Himanshu Dhawale          |
-| Finetune GPT2 with training data (For intents SearchCreativeWork, SearchScreeningEvent) |            Dhruv Dhamani           |
-| Evaluation and Analysis of results                                                           |          Himanshu Dhawale          |
-| Poster Presentation                                                                          | Dhruv Dhamani and Himanshu Dhawale |
-| Final Report                                                                                 |   Saloni Gupta and Bhavya Chawla   |
-
-## Reflections
-
-The first thing we worked upon in the report is presenting our views on what we have studied so far. Instead of linking papers and articles, we have articulated our views on the papers and what we learned from them. The concepts we grasped from every article we read has been stated clearly. Thus, this time we have tried to put forward our point of view and how we are approaching the problem instead.
-
-Also, due to lack of articulation, we failed at conveying our idea well. Thus, time we are presenting a more detailed and comprehensive introduction and background, explaining what we are proposing and how were we able to come up with those ideas and concepts. We have also planned our method of approaching the problem in a different manner such that we are able to work in an organized manner giving everybody a chance to put forward their best efforts. The text might seem too long, but we tried to display as much knowledge as we could through our report.
-
-Other things we were missing were detailed timelines and division of work, proper references and citation, and a proper summary of related papers. This time we have worked on all the sections to deliver the right product.
-
-We appreciate the feedback given to us as it really motivated us to improve and study deeply. We have tried to consider all the feedback given and we hope that we were able to fulfill the expectations.
-
-### Differences and novelty
-
-As we continue to take inspiration and learn from the research done in the world, we have tried to put forward some different aspects. In [5] the model is given questions and context separately while we and implementing a model where we do not tell the model which part of the sequence is the question and which one i context. Similarly, in [3] researchers tested the performance of GPT2 in a zero-shot setting while we intend to re-use the smallest GPT2 model released by them and attempt to fine-tune it by casting our labelled NLU dataset as question-answer pairs in natural language.
-
-Our proposed work is unusual for a project because it is more of a analytical study than an application of something. Our worked is inspired by the research we have seen around and thus we cannot say that our work is novel. But we are trying to make the existing models a little better by implementing certain concepts that we have studied. But we hope that our work is able to do some contribution in the field of research as we continue to learn and work on making it better.
+![New Timeline](timeline%20(2).svg)
 
 ## References and Citation
 
@@ -340,10 +289,12 @@ Our proposed work is unusual for a project because it is more of a analytical st
 
 [6] Ruder, Sebastian and Jeremy Howard. “Universal Language Model Fine-tuning for Text Classification.” ACL (2018).
 
-[7] Jozefowicz, R., Vinyals, O., Schuster, M., Shazeer, N., and Wu, Y. Exploring the limits of language modeling. arXiv preprint arXiv:1602.02410, 2016.
+[7] Zhilin Yang, Zihang Dai, Yiming Yang, Jaime Carbonell, Ruslan Salakhutdinov, Quoc V. Le. XLNet: Generalized Autoregressive Pretraining for Language Understanding. arXiv arXiv:1906.08237v1.
 
 [8] Dai, A. M. and Le, Q. V. Semi-supervised sequence learning. In Advances in neural information processing systems, pp. 3079– 3087, 2015.
 
 [9] Yogatama, Dani et al. “Learning and Evaluating General Linguistic Intelligence.” CoRRabs/1901.11373 (2019): n. Pag.
 
 [10] Contribute to Snipsco/Nlu-Benchmark Development by Creating an Account on GitHub. 2016. Snips, 2019. GitHub, https://github.com/snipsco/nlu-benchmark.
+
+[11] Yinhan Liu, Myle Ott, Naman Goyal, Jingfei Du, Mandar Joshi, Danqi Chen, Omer Levy, Mike Lewis, Luke Zettlemoyer, Veselin Stoyanov. RoBERTa: A Robustly Optimized BERT Pretraining Approach. eprint arXiv:1907.11692.
