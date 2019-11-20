@@ -51,9 +51,11 @@ for intent in intents:
         rows.append(_row)
 
     dfs[intent] = pd.DataFrame(
-        data = rows,
-        columns=(['text'] + data[intent + '_entities'])
+            data = rows,
+            columns=(['text'] + data[intent + '_entities'])
         )
 
-    dfs[intent].to_csv(os.path.join(path_to_intents, intent,intent + '.csv'))
+    dfs[intent].apply(lambda text: text.apply(lambda x: x.strip() if isinstance(x , str) else x))
+    
+    dfs[intent].to_csv(os.path.join(path_to_intents, intent,intent + '.csv'), encoding='utf-8')
     print("\twrote dataframe to " + intent + '.csv')

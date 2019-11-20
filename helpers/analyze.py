@@ -4,27 +4,25 @@ import pandas as pd
 import numpy as np
 import nltk
 import os
-from pytorch_pretrained_bert import GPT2Tokenizer, GPT2LMHeadModel
+# from pytorch_pretrained_bert import GPT2Tokenizer, GPT2LMHeadModel
 from nltk.corpus import stopwords
+import re
 
 nltk.download('stopwords')
-device = "cuda:0" if torch.cuda.is_available() else "cpu"
+# device = "cuda:0" if torch.cuda.is_available() else "cpu"
 
 
 def _filter(x): return " ".join(
     [word for word in x.lower().split() if word not in stopwords.words('english')])
 
 
-t = GPT2Tokenizer.from_pretrained('gpt2')
-path_to_intents = os.path.join('..', 'data', 'raw')
-intents = os.listdir(path_to_intents)
+# t = GPT2Tokenizer.from_pretrained('gpt2')
 
-data = {}
-for intent in intents:
-    data[intent] = {}
-    data[intent]['df'] = pd.read_csv(os.path.join(
-        path_to_intents, intent, intent + '.csv'))
 
+
+def clean(x):
+    y = " ".join([t.strip() for t in x.split()]).strip()
+    return re.sub(r'\s([?.,!"](?:\s|$))', r'\1', y)
 
 def clean_and_get_playlist(row):
     playlist = ''
@@ -38,7 +36,7 @@ def clean_and_get_playlist(row):
     if playlist == '':
         return np.NaN
     else:
-        return playlist.strip()
+        return clean(playlist)
 
 
 def clean_and_get_restaurant(row):
@@ -96,7 +94,7 @@ def clean_and_get_restaurant(row):
     if restaurant == '':
         return np.NaN
     else:
-        return restaurant.strip()
+        return clean(restaurant)
 
 
 def clean_and_get_location(row):
@@ -119,7 +117,7 @@ def clean_and_get_location(row):
     if location == '':
         return np.NaN
     else:
-        return location.strip()
+        return clean(location)
 
 
 def clean_and_get_music(row):
@@ -145,7 +143,7 @@ def clean_and_get_music(row):
     if song == '':
         return np.NaN
     else:
-        return song.strip()
+        return clean(song)
 
 def clean_and_get_rating(row):
     rating = ''
@@ -161,7 +159,7 @@ def clean_and_get_rating(row):
     if rating == '':
         return np.NaN
     else:
-        return rating.strip()
+        return clean(rating)
 
 
 def clean_and_get_creative_work(row):
@@ -179,7 +177,7 @@ def clean_and_get_creative_work(row):
     if work == '':
         return np.NaN
     else:
-        return work.strip()
+        return clean(work)
 
 
 def clean_and_get_event (row):
@@ -216,30 +214,41 @@ def clean_and_get_event (row):
     if location == '':
         return np.NaN
     else:
-        return location.strip()
+        return clean(location)
 
+def get_data(path_to_intents = os.path.join('..', 'data', 'raw')):
+    intents = os.listdir(path_to_intents)
+    data = {}
+    for intent in intents:
+        data[intent] = {}
+        data[intent]['df'] = pd.read_csv(os.path.join(
+            path_to_intents, intent, intent + '.csv'))
 
-data['AddToPlaylist']['df']['playlist'] = data['AddToPlaylist']['df'].apply(
-    clean_and_get_playlist, axis=1)
+    data['AddToPlaylist']['df']['playlist'] = data['AddToPlaylist']['df'].apply(
+        clean_and_get_playlist, axis=1)
 
-data['BookRestaurant']['df']['place'] = data['BookRestaurant']['df'].apply(
-    clean_and_get_restaurant, axis=1)
+    data['BookRestaurant']['df']['place'] = data['BookRestaurant']['df'].apply(
+        clean_and_get_restaurant, axis=1)
 
-data['GetWeather']['df']['location'] = data['GetWeather']['df'].apply(
-    clean_and_get_location, axis=1)
+    data['GetWeather']['df']['location'] = data['GetWeather']['df'].apply(
+        clean_and_get_location, axis=1)
 
-data['PlayMusic']['df']['music'] = data['PlayMusic']['df'].apply(
-    clean_and_get_music, axis=1)
+    data['PlayMusic']['df']['music'] = data['PlayMusic']['df'].apply(
+        clean_and_get_music, axis=1)
 
-data['RateBook']['df']['rating'] = data['RateBook']['df'].apply(
-    clean_and_get_rating, axis=1)
-    
-data['SearchCreativeWork']['df']['work'] = data['SearchCreativeWork']['df'].apply(
-    clean_and_get_creative_work, axis=1)
-    
-data['SearchScreeningEvent']['df']['event'] =  data['SearchScreeningEvent']['df'].apply(
-    clean_and_get_event, axis=1)
+    data['RateBook']['df']['rating'] = data['RateBook']['df'].apply(
+        clean_and_get_rating, axis=1)
+        
+    data['SearchCreativeWork']['df']['work'] = data['SearchCreativeWork']['df'].apply(
+        clean_and_get_creative_work, axis=1)
+        
+    data['SearchScreeningEvent']['df']['event'] =  data['SearchScreeningEvent']['df'].apply(
+        clean_and_get_event, axis=1)
 
+    return data
+
+path_to_intents = os.path.join('..', 'data', 'raw')
+intents = os.listdir(path_to_intents)
 questions = [
     ['Which playlist?', 'Where should I add?', 'What should I add to?', 'What was the playlist?', 'I will add it to'],
     ['Where do they want to eat?', 'Which place?', 'Which eatery?', 'Where?', 'I will book a table at'],
@@ -263,6 +272,9 @@ entities = [
 train_data = {}
 test_data = {}
 split_at = 0.8
+
+data = get_data()
+
 for intent in intents:
     train_data[intent] = data[intent]['df'].head(int(len(data[intent]['df'])*split_at))
 
