@@ -286,10 +286,11 @@ with open(os.path.join('..', 'data', 'train.txt'), 'w', encoding='utf-8') as f:
     for i, intent in enumerate(intents):
         for index, row in train_data[intent].iterrows():
             for question in questions[i]:
-                if "?" in question:
-                    train_list.append(row['text'] + '\n' + question + '\n' + str(row[entities[i]]) + "\n\n")
+                if row['text'].strip().endswith(".") or row['text'].strip().endswith("?"):
+                    train_list.append(row['text'] + ' ' + question + ' ' + str(row[entities[i]]) + "\n\n")
                 else:
-                    train_list.append(row['text'] + '\n' + question + ' ' + str(row[entities[i]]) + "\n\n")
+                    train_list.append(row['text'] + '. ' + question + ' ' + str(row[entities[i]]) + "\n\n")
+                    
     shuffle(train_list)
     f.writelines(train_list)
 
@@ -302,9 +303,10 @@ with open(os.path.join('..', 'data', 'test.txt'), 'w', encoding='utf-8') as f:
     for i, intent in enumerate(intents):
         for index, row in test_data[intent].iterrows():
             for question in questions[i]:
-                if "?" in question:    
-                    test_list.append(row['text'] + '\n' + question + '\n' + str(row[entities[i]]) + '\n\n')  
+                if row['text'].strip().endswith(".") or row['text'].strip().endswith("?"):
+                    test_list.append(row['text'] + ' ' + question + ' ' + str(row[entities[i]]) + "\n\n")
                 else:
-                    test_list.append(row['text'] + '\n' + question + ' ' + str(row[entities[i]]) + '\n\n')     
+                    test_list.append(row['text'] + '. ' + question + ' ' + str(row[entities[i]]) + "\n\n")
+                     
     shuffle(test_list)
     f.writelines(test_list)     
