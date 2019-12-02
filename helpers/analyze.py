@@ -307,10 +307,12 @@ with open(os.path.join('..', 'data', 'test.txt'), 'w', encoding='utf-8') as f:
                 if row['text'].strip().endswith(".") or row['text'].strip().endswith("?"):
                     test_list.append("<s> " + row['text'] + ' ' + question + '\n' + str(row[entities[i]]) + " </s>\n\n")
                     masked_list.append("<s> " + row['text'] + ' ' + question + '\n' + " ".join(["<mask>" for x in str(row[entities[i]]).split()]) + " </s>\n\n")
+                    masked_list.append("__actual <s> " + row['text'] + ' ' + question + '\n' + str(row[entities[i]]) + " </s>\n\n")
+
                 else:
                     test_list.append("<s> " + row['text'] + '. ' + question + '\n' + str(row[entities[i]]) + " </s>\n\n")
                     masked_list.append("<s> " + row['text'] + ' ' + question + '\n' + " ".join(["<mask>" for x in str(row[entities[i]]).split()]) + " </s>\n\n")
-
+                    masked_list.append("__actual <s> " + row['text'] + ' ' + question + '\n' + str(row[entities[i]]) + " </s>\n\n")
                      
     shuffle(test_list)
     f.writelines(test_list)     
