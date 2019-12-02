@@ -300,13 +300,20 @@ with open(os.path.join('..', 'data', 'train.txt'), 'w', encoding='utf-8') as f:
 
 with open(os.path.join('..', 'data', 'test.txt'), 'w', encoding='utf-8') as f:
     test_list = []
+    masked_list = []
     for i, intent in enumerate(intents):
         for index, row in test_data[intent].iterrows():
             for question in questions[i]:
                 if row['text'].strip().endswith(".") or row['text'].strip().endswith("?"):
                     test_list.append("<s> " + row['text'] + ' ' + question + '\n' + str(row[entities[i]]) + " </s>\n\n")
+                    masked_list.append("<s> " + row['text'] + ' ' + question + '\n' + " ".join(["<mask>" for x in str(row[entities[i]]).split()]) + " </s>\n\n")
                 else:
                     test_list.append("<s> " + row['text'] + '. ' + question + '\n' + str(row[entities[i]]) + " </s>\n\n")
+                    masked_list.append("<s> " + row['text'] + ' ' + question + '\n' + " ".join(["<mask>" for x in str(row[entities[i]]).split()]) + " </s>\n\n")
+
                      
     shuffle(test_list)
     f.writelines(test_list)     
+
+    with open(os.path.join('..', 'data', 'masked.txt'), 'w', encoding='utf-8') as F:
+        F.writelines(masked_list)
