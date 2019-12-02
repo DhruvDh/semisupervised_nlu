@@ -14,6 +14,9 @@
 
 - A subtask of Natural Language Understanding that deal with machine reading
 comprehension.
+
+* Natural Language Understanding
+
 - Consider the sentence - ~Charlotte is in North Carolina.~
   - If a program can successfuly carry out NLU, you'd expect it to comprehend
         that Charlotte is in fact in North Carolina.

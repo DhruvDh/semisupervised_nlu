@@ -39,6 +39,12 @@
 <p>
 comprehension.
 </p>
+
+</section>
+</section>
+<section>
+<section id="slide-2">
+<h2 id="2"><span class="section-number-2">2</span> Natural Language Understanding</h2>
 <ul>
 <li>Consider the sentence - <code>Charlotte is in North Carolina.</code>
 <ul>
@@ -62,8 +68,8 @@ that Charlotte is in fact in North Carolina.</li>
 </section>
 </section>
 <section>
-<section id="slide-2">
-<h2 id="2"><span class="section-number-2">2</span> Natural Language Understanding</h2>
+<section id="slide-3">
+<h2 id="3"><span class="section-number-2">3</span> Natural Language Understanding</h2>
 <ul>
 <li>Generative Language Models can potentially implicitly solve this problem, without any
 task-specific training.</li>
@@ -73,8 +79,8 @@ task-specific training.</li>
 </section>
 </section>
 <section>
-<section id="slide-3">
-<h2 id="3"><span class="section-number-2">3</span> An example.</h2>
+<section id="slide-4">
+<h2 id="4"><span class="section-number-2">4</span> An example.</h2>
 <ul>
 <li>Book a spot for three at Maid-Rite Sandwich Shop in Antigua and Barbuda. I&rsquo;ll
 book a table for you at [&#x2026;]</li>
@@ -88,8 +94,8 @@ book a table for [&#x2026;]</li>
 </section>
 </section>
 <section>
-<section id="slide-4">
-<h2 id="4"><span class="section-number-2">4</span> An example.</h2>
+<section id="slide-5">
+<h2 id="5"><span class="section-number-2">5</span> An example.</h2>
 <ul>
 <li>Book a spot for three at Maid-Rite Sandwich Shop in Antigua and Barbuda. I&rsquo;ll
 book a table for you at <span class="underline">Maid-Rite Sandwich</span></li>
@@ -103,8 +109,8 @@ book a table for <span class="underline">three</span></li>
 </section>
 </section>
 <section>
-<section id="slide-5">
-<h2 id="5"><span class="section-number-2">5</span> RoBERTa</h2>
+<section id="slide-6">
+<h2 id="6"><span class="section-number-2">6</span> RoBERTa</h2>
 <p>
 RoBERTa iterates on BERT&rsquo;s pretraining procedure, including training the model longer, with bigger batches over more data; removing the next sentence prediction objective; training on longer sequences; and dynamically changing the masking pattern applied to the training data.
 </p>
@@ -113,20 +119,10 @@ RoBERTa iterates on BERT&rsquo;s pretraining procedure, including training the m
 </section>
 </section>
 <section>
-<section id="slide-6">
-<h2 id="6"><span class="section-number-2">6</span> RoBERTa</h2>
+<section id="slide-7">
+<h2 id="7"><span class="section-number-2">7</span> RoBERTa</h2>
 <ul>
 <li>Bi-directional masked language model.</li>
-
-</ul>
-
-</section>
-</section>
-<section>
-<section id="slide-7">
-<h2 id="7"><span class="section-number-2">7</span> What I intended to do -</h2>
-<ul>
-<li>Book a spot for three at Eve&rsquo;s Pizzeria. Which place? <code>&lt;mask&gt;</code></li>
 
 </ul>
 
@@ -137,8 +133,6 @@ RoBERTa iterates on BERT&rsquo;s pretraining procedure, including training the m
 <h2 id="8"><span class="section-number-2">8</span> What I intended to do -</h2>
 <ul>
 <li>Book a spot for three at Eve&rsquo;s Pizzeria. Which place? <code>&lt;mask&gt;</code></li>
-<li>Book a spot for three at Eve&rsquo;s Pizzeria. Which place? Eve&rsquo;s <code>&lt;mask&gt;</code></li>
-<li>Book a spot for three at Eve&rsquo;s Pizzeria. Which place? Eve&rsquo;s Pizzeria</li>
 
 </ul>
 
@@ -146,9 +140,11 @@ RoBERTa iterates on BERT&rsquo;s pretraining procedure, including training the m
 </section>
 <section>
 <section id="slide-9">
-<h2 id="9"><span class="section-number-2">9</span> What actually happens -</h2>
+<h2 id="9"><span class="section-number-2">9</span> What I intended to do -</h2>
 <ul>
-<li>&lt;s&gt; Book a spot for three at Eve&rsquo;s Pizzeria. Which place? &lt;/s&gt;</li>
+<li>Book a spot for three at Eve&rsquo;s Pizzeria. Which place? <code>&lt;mask&gt;</code></li>
+<li>Book a spot for three at Eve&rsquo;s Pizzeria. Which place? Eve&rsquo;s <code>&lt;mask&gt;</code></li>
+<li>Book a spot for three at Eve&rsquo;s Pizzeria. Which place? Eve&rsquo;s Pizzeria</li>
 
 </ul>
 
@@ -158,6 +154,16 @@ RoBERTa iterates on BERT&rsquo;s pretraining procedure, including training the m
 <section id="slide-10">
 <h2 id="10"><span class="section-number-2">10</span> What actually happens -</h2>
 <ul>
+<li>&lt;s&gt; Book a spot for three at Eve&rsquo;s Pizzeria. Which place? &lt;/s&gt;</li>
+
+</ul>
+
+</section>
+</section>
+<section>
+<section id="slide-11">
+<h2 id="11"><span class="section-number-2">11</span> What actually happens -</h2>
+<ul>
 <li>&lt;s&gt; Book a spot for three at Eve&rsquo;s Pizzeria. Which place? &lt;/s&gt;&lt;/s&gt;</li>
 <li>&lt;s&gt; Book a spot for three at Eve&rsquo;s Pizzeria. Which place? &lt;/s&gt;&lt;/s&gt;&lt;/s&gt;&lt;/s&gt;&lt;/s&gt;&lt;/s&gt;&lt;/s&gt;&lt;/s&gt;</li>
 
@@ -166,8 +172,8 @@ RoBERTa iterates on BERT&rsquo;s pretraining procedure, including training the m
 </section>
 </section>
 <section>
-<section id="slide-11">
-<h2 id="11"><span class="section-number-2">11</span> How to get it to work -</h2>
+<section id="slide-12">
+<h2 id="12"><span class="section-number-2">12</span> How to get it to work -</h2>
 <ul>
 <li>Don&rsquo;t use a birdirectional masked language model.</li>
 <li>Examples of GPT2, a uni-directional transformer model trained for the same
@@ -201,8 +207,8 @@ Pizzeria.</li>
 </section>
 </section>
 <section>
-<section id="slide-12">
-<h2 id="12"><span class="section-number-2">12</span> Any questions?</h2>
+<section id="slide-13">
+<h2 id="13"><span class="section-number-2">13</span> Any questions?</h2>
 </section>
 </section>
 </div>
