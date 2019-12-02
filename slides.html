@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>Why my Project is pointless</title>
+<meta name="author" content="Dhruv Dhamani"/>
+<style type="text/css">
+.underline { text-decoration: underline; }
+</style>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.8.0/css/reveal.css"/>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.8.0/css/theme/simple.css" id="theme"/>
+
+<!-- If the query includes 'print-pdf', include the PDF print sheet -->
+<script>
+    if( window.location.search.match( /print-pdf/gi ) ) {
+        var link = document.createElement( 'link' );
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = 'https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.8.0/css/print/pdf.css';
+        document.getElementsByTagName( 'head' )[0].appendChild( link );
+    }
+</script>
+</head>
+<body>
+<div class="reveal">
+<div class="slides">
+<section id="sec-title-slide">
+<h1>Why my Project is pointless</h1>
+</section>
+
+<section>
+<section id="slide-1">
+<h2 id="1"><span class="section-number-2">1</span> Intelligent Agent</h2>
+
+<div class="figure">
+<p><img src="./ia.png" alt="ia.png" />
+</p>
+</div>
+
+</section>
+</section>
+<section>
+<section id="slide-2">
+<h2 id="2"><span class="section-number-2">2</span> An example.</h2>
+<ul>
+<li>Book a spot for three at Maid-Rite Sandwich Shop in Antigua and Barbuda. I&rsquo;ll
+book a table for you at [&#x2026;]</li>
+<li>Book a spot for three at Maid-Rite Sandwich Shop in Antigua and Barbuda. Which
+place? [&#x2026;]</li>
+<li>Book a spot for three at Maid-Rite Sandwich Shop in Antigua and Barbuda. I&rsquo;ll
+book a table for [&#x2026;]</li>
+
+</ul>
+
+</section>
+</section>
+<section>
+<section id="slide-3">
+<h2 id="3"><span class="section-number-2">3</span> An example.</h2>
+<ul>
+<li>Book a spot for three at Maid-Rite Sandwich Shop in Antigua and Barbuda. I&rsquo;ll
+book a table for you at <span class="underline">Maid-Rite Sandwich</span></li>
+<li>Book a spot for three at Maid-Rite Sandwich Shop in Antigua and Barbuda. Which
+place? <span class="underline">Maid-Rite Sandwich</span></li>
+<li>Book a spot for three at Maid-Rite Sandwich Shop in Antigua and Barbuda. I&rsquo;ll
+book a table for <span class="underline">three</span></li>
+
+</ul>
+
+</section>
+</section>
+<section>
+<section id="slide-4">
+<h2 id="4"><span class="section-number-2">4</span> RoBERTa</h2>
+<p>
+RoBERTa iterates on BERT&rsquo;s pretraining procedure, including training the model longer, with bigger batches over more data; removing the next sentence prediction objective; training on longer sequences; and dynamically changing the masking pattern applied to the training data.
+</p>
+
+
+</section>
+</section>
+<section>
+<section id="slide-5">
+<h2 id="5"><span class="section-number-2">5</span> RoBERTa</h2>
+<ul>
+<li>Bi-directional masked language model.</li>
+
+</ul>
+
+</section>
+</section>
+<section>
+<section id="slide-6">
+<h2 id="6"><span class="section-number-2">6</span> What I intended to do -</h2>
+<ul>
+<li>Book a spot for three at Eve&rsquo;s Pizzeria. Which place? <code>&lt;mask&gt;</code></li>
+
+</ul>
+
+</section>
+</section>
+<section>
+<section id="slide-7">
+<h2 id="7"><span class="section-number-2">7</span> What I intended to do -</h2>
+<ul>
+<li>Book a spot for three at Eve&rsquo;s Pizzeria. Which place? <code>&lt;mask&gt;</code></li>
+<li>Book a spot for three at Eve&rsquo;s Pizzeria. Which place? Eve&rsquo;s <code>&lt;mask&gt;</code></li>
+<li>Book a spot for three at Eve&rsquo;s Pizzeria. Which place? Eve&rsquo;s Pizzeria</li>
+
+</ul>
+
+</section>
+</section>
+<section>
+<section id="slide-8">
+<h2 id="8"><span class="section-number-2">8</span> What actually happens -</h2>
+<ul>
+<li>&lt;s&gt; Book a spot for three at Eve&rsquo;s Pizzeria. Which place? &lt;/s&gt;</li>
+
+</ul>
+
+</section>
+</section>
+<section>
+<section id="slide-9">
+<h2 id="9"><span class="section-number-2">9</span> What actually happens -</h2>
+<ul>
+<li>&lt;s&gt; Book a spot for three at Eve&rsquo;s Pizzeria. Which place? Eve&rsquo;s &lt;/s&gt;&lt;/s&gt;</li>
+<li>&lt;s&gt; Book a spot for three at Eve&rsquo;s Pizzeria. Which place? Eve&rsquo;s &lt;/s&gt;&lt;/s&gt;&lt;/s&gt;&lt;/s&gt;&lt;/s&gt;&lt;/s&gt;&lt;/s&gt;&lt;/s&gt;</li>
+
+</ul>
+
+</section>
+</section>
+<section>
+<section id="slide-10">
+<h2 id="10"><span class="section-number-2">10</span> How to get it to work -</h2>
+<ul>
+<li>Don&rsquo;t use a birdirectional masked language model.</li>
+<li>Examples of GPT2, a uni-directional transformer model trained for the same
+task -
+<ul>
+<li>add artist to All Out 70s . Where should I add ? All Out 70s</li>
+<li>Give the current  book a three . What is the rating ? three</li>
+<li><a href="https://colab.research.google.com/drive/1MGDjZDdgzxZtAI_KO2yDEOkRmX3jj2LD">https://colab.research.google.com/drive/1MGDjZDdgzxZtAI_KO2yDEOkRmX3jj2LD</a></li>
+
+</ul></li>
+<li>Do not use dynamic masking, as the orignal paper did, instead mask only the
+final answer.
+<ul>
+<li>What the paper did -
+<ul>
+<li>Book a <code>&lt;mask&gt;</code> for three <code>&lt;mask&gt;</code> Eve&rsquo;s Pizzeria. Which place? Eve&rsquo;s
+Pizzeria.</li>
+
+</ul></li>
+<li>Instead, do -
+<ul>
+<li>Book a spot for three at Eve&rsquo;s Pizzeria. Which place? <code>&lt;mask&gt;
+     &lt;mask&gt;</code></li>
+
+</ul></li>
+
+</ul></li>
+
+</ul>
+
+</section>
+</section>
+<section>
+<section id="slide-11">
+<h2 id="11"><span class="section-number-2">11</span> Any questions?</h2>
+</section>
+</section>
+</div>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.8.0/lib/js/head.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.8.0/js/reveal.js"></script>
+<script>
+// Full list of configuration options available here:
+// https://github.com/hakimel/reveal.js#configuration
+Reveal.initialize({
+
+controls: true,
+progress: true,
+history: false,
+center: true,
+slideNumber: 'c',
+rollingLinks: false,
+keyboard: true,
+mouseWheel: false,
+fragmentInURL: false,
+hashOneBasedIndex: false,
+pdfSeparateFragments: true,
+
+overview: true,
+width: 1920,
+height: 1080,
+
+theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+transition: Reveal.getQueryHash().transition || 'convex', // see README of reveal.js for options
+transitionSpeed: 'default',
+
+// Optional libraries used to extend reveal.js
+dependencies: [
+{src: "./script.js"},
+ { src: 'https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.8.0/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+ { src: 'https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.8.0/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+ { src: 'https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.8.0/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } },
+ { src: 'https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.8.0/plugin/search/search.js', async: true, condition: function() { return !!document.body.classList; } },
+ { src: 'https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.8.0/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } }]
+
+});
+</script>
+</body>
+</html>

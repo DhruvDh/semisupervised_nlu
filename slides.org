@@ -1,0 +1,78 @@
+#+title: Why my Project is pointless
+#+author: Dhruv Dhamani
+
+#+OPTIONS: toc:nil reveal_height:1080 reveal_width:1920 nums:nil
+
+#+REVEAL_TITLE_SLIDE: <h1>%t</h1>
+
+#+reveal_root: https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.8.0/
+
+#+reveal_theme: simple
+#+REVEAL_EXTRA_JS: {src: "./script.js"}
+
+* Intelligent Agent
+[[./ia.png]]
+
+* An example.
+
+- Book a spot for three at Maid-Rite Sandwich Shop in Antigua and Barbuda. I'll
+  book a table for you at [...]
+- Book a spot for three at Maid-Rite Sandwich Shop in Antigua and Barbuda. Which
+  place? [...]
+- Book a spot for three at Maid-Rite Sandwich Shop in Antigua and Barbuda. I'll
+  book a table for [...]
+
+* An example.
+
+- Book a spot for three at Maid-Rite Sandwich Shop in Antigua and Barbuda. I'll
+  book a table for you at _Maid-Rite Sandwich_
+- Book a spot for three at Maid-Rite Sandwich Shop in Antigua and Barbuda. Which
+  place? _Maid-Rite Sandwich_
+- Book a spot for three at Maid-Rite Sandwich Shop in Antigua and Barbuda. I'll
+  book a table for _three_
+ 
+* RoBERTa
+
+RoBERTa iterates on BERT's pretraining procedure, including training the model longer, with bigger batches over more data; removing the next sentence prediction objective; training on longer sequences; and dynamically changing the masking pattern applied to the training data.
+
+
+* RoBERTa
+
+- Bi-directional masked language model.
+
+* What I intended to do -
+
+- Book a spot for three at Eve's Pizzeria. Which place? ~<mask>~
+
+* What I intended to do -
+- Book a spot for three at Eve's Pizzeria. Which place? ~<mask>~
+- Book a spot for three at Eve's Pizzeria. Which place? Eve's ~<mask>~
+- Book a spot for three at Eve's Pizzeria. Which place? Eve's Pizzeria
+
+* What actually happens -
+
+
+- <s> Book a spot for three at Eve's Pizzeria. Which place? </s>
+
+* What actually happens -
+- <s> Book a spot for three at Eve's Pizzeria. Which place? Eve's </s></s>
+- <s> Book a spot for three at Eve's Pizzeria. Which place? Eve's </s></s></s></s></s></s></s></s>
+
+* How to get it to work -
+
+- Don't use a birdirectional masked language model.
+- Examples of GPT2, a uni-directional transformer model trained for the same
+  task -
+  - add artist to All Out 70s . Where should I add ? All Out 70s
+  - Give the current  book a three . What is the rating ? three
+  - https://colab.research.google.com/drive/1MGDjZDdgzxZtAI_KO2yDEOkRmX3jj2LD
+- Do not use dynamic masking, as the orignal paper did, instead mask only the
+  final answer.
+  - What the paper did -
+    - Book a ~<mask>~ for three ~<mask>~ Eve's Pizzeria. Which place? Eve's
+      Pizzeria.
+  - Instead, do -
+    - Book a spot for three at Eve's Pizzeria. Which place? ~<mask>
+     <mask>~
+
+* Any questions?
