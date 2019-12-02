@@ -10,8 +10,22 @@
 #+reveal_theme: simple
 #+REVEAL_EXTRA_JS: {src: "./script.js"}
 
-* Intelligent Agent
-[[./ia.png]]
+* Natural Language Understanding
+
+- A subtask of Natural Language Understanding that deal with machine reading
+comprehension.
+    - Consider the sentence - ~Charlotte is in North Carolina.~
+    - If a program can successfuly carry out NLU, you'd expect it to comprehend
+      that Charlotte is in fact in North Carolina.
+    - How do you know if your program comprehended the meaning successfully?
+      - You ask it a question!
+        - ~Where is Charlotte?~
+        - ~Is Charlotte in NC?~
+
+* Natural Language Understanding
+
+- Generative Language Models can potentially implicitly solve this problem, without any
+  task-specific training.
 
 * An example.
 
