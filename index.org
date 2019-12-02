@@ -14,13 +14,13 @@
 
 - A subtask of Natural Language Understanding that deal with machine reading
 comprehension.
-    - Consider the sentence - ~Charlotte is in North Carolina.~
-    - If a program can successfuly carry out NLU, you'd expect it to comprehend
-      that Charlotte is in fact in North Carolina.
-    - How do you know if your program comprehended the meaning successfully?
-      - You ask it a question!
-        - ~Where is Charlotte?~
-        - ~Is Charlotte in NC?~
+- Consider the sentence - ~Charlotte is in North Carolina.~
+  - If a program can successfuly carry out NLU, you'd expect it to comprehend
+        that Charlotte is in fact in North Carolina.
+  - How do you know if your program comprehended the meaning successfully?
+    - You ask it a question!
+      - ~Where is Charlotte?~
+      - ~Is Charlotte in NC?~
 
 * Natural Language Understanding
 
@@ -69,8 +69,8 @@ RoBERTa iterates on BERT's pretraining procedure, including training the model l
 - <s> Book a spot for three at Eve's Pizzeria. Which place? </s>
 
 * What actually happens -
-- <s> Book a spot for three at Eve's Pizzeria. Which place? Eve's </s></s>
-- <s> Book a spot for three at Eve's Pizzeria. Which place? Eve's </s></s></s></s></s></s></s></s>
+- <s> Book a spot for three at Eve's Pizzeria. Which place? </s></s>
+- <s> Book a spot for three at Eve's Pizzeria. Which place? </s></s></s></s></s></s></s></s>
 
 * How to get it to work -
 
