@@ -18,6 +18,8 @@
   - [Performance metrics](#performance-metrics)
   - [Results](#results)
     - [Baseline performance](#baseline-performance)
+  - [Finetuned Performance](#finetuned-performance)
+  - [Instructions for reproduction -](#instructions-for-reproduction)
   - [References and Citation](#references-and-citation)
 
 ## Introduction
@@ -251,10 +253,67 @@ For SearchCreativeWork, avg. BLEU score is 0.08233009173333247
 For SearchScreeningEvent, avg. BLEU score is 0.0811461706991225
 ```
 
+## Finetuned Performance
+
 After the entire process described earlier, we get the following results. Note, the model was only trained for 15 epochs due to lack of time. The model did not show any signs of overfitting, and perplexity was reducing steadily on the test set when training was halted.
 
 ```
 ```
+
+## Instructions for reproduction -
+
+I expect you'd want to run this on a cluster like MAMBA. You'll need two scripts to submit your job -
+
+`do.sh` - https://paste.rs/
+1a4
+
+```
+#!/bin/bash
+
+#rm -rf semisupervised_nlu
+
+git clone --recurse-submodules https://github.com/DhruvDh/semisupervised_nlu.git
+
+job=$(qsub -d `pwd` -l nodes=1:ppn=16:gpus=1 submit.sh -q mamba -l walltime=11:30:00)
+num=${job:0:5}
+
+echo "Job ID: $num"
+echo $num > lastjob
+```
+
+`submit.sh` - https://paste.rs/xxK
+
+```
+#!/bin/bash
+
+export PATH=~/.local/bin:$PATH
+
+#module load cuda/8.0 cudnn/6.0-cuda8 anaconda3/5.0.1-cuda8
+
+module load pytorch/1.2.0-anaconda3-cuda10.0 
+python3 -m pip install --user transformers tensorboardx
+
+source ~/.bashrc
+conda init
+source ~/.bashrc
+
+cd semisupervised_nlu
+
+python3 ./transformers/examples/run_lm_finetuning.py \
+    --output_dir=output \
+    --model_type=roberta \
+    --model_name_or_path=roberta-base \
+    --do_train \
+    --train_data_file="./data/roberta/train.txt" \
+    --do_eval \
+    --eval_data_file="./data/roberta/test.txt" \
+    --num_train_epochs=15 \
+    --save_steps=659 \
+    --save_total_limit=2 \
+    --mlm
+```
+
+And run `do.sh` to submit the training job. This will produce a model in `semisupervised_nlu/output`, which is where this notebook will try to load the model from later.
 
 ## References and Citation
 
