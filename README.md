@@ -258,6 +258,13 @@ For SearchScreeningEvent, avg. BLEU score is 0.0811461706991225
 After the entire process described earlier, we get the following results. Note, the model was only trained for 15 epochs due to lack of time. The model did not show any signs of overfitting, and perplexity was reducing steadily on the test set when training was halted.
 
 ```
+For AddToPlaylist, avg. BLEU score is 0.16514179960324057
+For BookRestaurant, avg. BLEU score is 0.17426388896455408
+For GetWeather, avg. BLEU score is 0.15929780279715913
+For PlayMusic, avg. BLEU score is 0.1298260035864877
+For RateBook, avg. BLEU score is 0.16260719603629817
+For SearchCreativeWork, avg. BLEU score is 0.242404107401496
+For SearchScreeningEvent, avg. BLEU score is 0.22547489922245267
 ```
 
 ## Instructions for reproduction -
