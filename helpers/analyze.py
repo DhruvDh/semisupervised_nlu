@@ -250,13 +250,13 @@ def get_data(path_to_intents = os.path.join('..', 'data', 'raw')):
 path_to_intents = os.path.join('..', 'data', 'raw')
 intents = os.listdir(path_to_intents)
 questions = [
-    ['Which playlist?', 'Where should I add?', 'What should I add to?', 'What was the playlist?'],
-    ['Where do they want to eat?', 'Which place?', 'Which eatery?', 'Where?'],
-    ['Where?', 'Which location?'],
-    ['What should I play?', 'What do you want to hear?'],
-    ['What much should I rate?', 'What is the rating?', 'How would they like to rate it?', 'Rate how much?',],
-    ['Find what?', 'What should I look for?'],
-    ['Find what?', 'What should I look for?'],
+    ['Which playlist?', 'Where should I add?', 'What should I add to?', 'What was the playlist?', 'I will add it to'],
+    ['Where do they want to eat?', 'Which place?', 'Which eatery?', 'Where?', 'I will book a table at'],
+    ['Where?', 'Which location?', 'I will tell you the weather for'],
+    ['What should I play?', 'What do you want to hear?','I will play'],
+    ['What much should I rate?', 'What is the rating?', 'How would they like to rate it?', 'Rate how much?', 'I will rate it'],
+    ['Find what?', 'What should I look for?','I will find', 'I will look for', 'I will try to find', 'I will try to look for'],
+    ['Find what?', 'What should I look for?','I will find', 'I will look for', 'I will try to find', 'I will try to look for'],
 ]
 
 entities = [
@@ -287,9 +287,9 @@ with open(os.path.join('..', 'data', 'train.txt'), 'w', encoding='utf-8') as f:
         for index, row in train_data[intent].iterrows():
             for question in questions[i]:
                 if row['text'].strip().endswith(".") or row['text'].strip().endswith("?"):
-                    train_list.append("" + row['text'] + ' ' + question + '\n' + str(row[entities[i]]) + "\n\n")
+                    train_list.append("<s> " + row['text'] + ' ' + question + ' ' + str(row[entities[i]]) + " </s>\n\n")
                 else:
-                    train_list.append("" + row['text'] + '. ' + question + '\n' + str(row[entities[i]]) + "\n\n")
+                    train_list.append("<s> " + row['text'] + '. ' + question + ' ' + str(row[entities[i]]) + " </s>\n\n")
                     
     shuffle(train_list)
     f.writelines(train_list)
@@ -305,14 +305,14 @@ with open(os.path.join('..', 'data', 'test.txt'), 'w', encoding='utf-8') as f:
         for index, row in test_data[intent].iterrows():
             for question in questions[i]:
                 if row['text'].strip().endswith(".") or row['text'].strip().endswith("?"):
-                    test_list.append("" + row['text'] + ' ' + question + '\n' + str(row[entities[i]]) + "\n\n")
-                    masked_list.append("" + row['text'] + ' ' + question + '\n' + " ".join(["<mask>" for x in str(row[entities[i]]).split()]) + "\n\n")
-                    masked_list.append("__actual " + row['text'] + ' ' + question + '\n' + str(row[entities[i]]) + "\n\n")
+                    test_list.append("<s> " + row['text'] + ' ' + question + ' ' + str(row[entities[i]]) + " </s>\n\n")
+                    masked_list.append("<s> " + row['text'] + ' ' + question + ' ' + " ".join(["<mask>" for x in str(row[entities[i]]).split()]) + " </s>\n\n")
+                    masked_list.append("__actual " + row['text'] + ' ' + question + ' ' + str(row[entities[i]]) + " </s>\n\n")
 
                 else:
-                    test_list.append("" + row['text'] + '. ' + question + '\n' + str(row[entities[i]]) + "\n\n")
-                    masked_list.append("" + row['text'] + ' ' + question + '\n' + " ".join(["<mask>" for x in str(row[entities[i]]).split()]) + "\n\n")
-                    masked_list.append("__actual " + row['text'] + ' ' + question + '\n' + str(row[entities[i]]) + "\n\n")
+                    test_list.append("<s> " + row['text'] + '. ' + question + ' ' + str(row[entities[i]]) + " </s>\n\n")
+                    masked_list.append("<s> " + row['text'] + ' ' + question + ' ' + " ".join(["<mask>" for x in str(row[entities[i]]).split()]) + " </s>\n\n")
+                    masked_list.append("__actual " + row['text'] + ' ' + question + ' ' + str(row[entities[i]]) + " </s>\n\n")
                      
     shuffle(test_list)
     f.writelines(test_list)     
