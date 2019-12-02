@@ -16,8 +16,8 @@
   - [Dataset](#dataset)
     - [Our Approach](#our-approach)
   - [Performance metrics](#performance-metrics)
-  - [Logistics](#logistics)
-    - [Timeline](#timeline)
+  - [Results](#results)
+    - [Baseline performance](#baseline-performance)
     - [Milestones achieved](#milestones-achieved)
   - [References and Citation](#references-and-citation)
 
@@ -236,8 +236,28 @@ The prediction the model made was `. new east: . newg $`. While it is nonsensica
 
 I intend to use BLEU (bilingual evaluation understudy) score as a metric for performance. This algorithm would be used to compare the generated answer with the actual answer.
 
-## Logistics
+## Results
 
+### Baseline performance
+
+When the base RoBERTa model (with pretrained weights) is used without any fine-tuning, the BLEU scores for each intent are as follows -
+
+```
+For AddToPlaylist, avg. BLEU score is 0.03314444953707598
+For BookRestaurant, avg. BLEU score is 0.024356911937837487
+For GetWeather, avg. BLEU score is 0.015514249211315917
+For PlayMusic, avg. BLEU score is 0.016610345225562685
+For RateBook, avg. BLEU score is 0.011978870598112389
+For SearchCreativeWork, avg. BLEU score is 0.08233009173333247
+For SearchScreeningEvent, avg. BLEU score is 0.0811461706991225
+```
+
+After the entire process described earlier, we get the following results. Note, the model was only trained for 15 epochs due to lack of time. The model did not show any signs of overfitting, and perplexity was reducing steadily on the test set when training was halted.
+
+```
+```
+
+<!-- 
 ### Timeline
 <!-- gantt
     title Timeline
@@ -295,7 +315,8 @@ For SearchScreeningEvent, avg. BLEU score is 0.0811461706991225
 
 The scores are this low because the model has a tendency to repeat what the prompt given to it. For instance, if the prompt goes `Book a table at the restaurant The Middle East. Which place?`, the expected answer is `The Middle East` or `I will book a table at The Middle East.`, while what the base model produces is more like `book The Middle East Mediterranean restaurant in NYC for lunch. I will book a table.`
 
-I have the training corpus ready, I have working code for evaluating the model ready, I have performed some evaluations on the base model, all that remains is to finetune the base model on the corpus I've generated and then run the new weights through the evaluation code.
+I have the training corpus ready, I have working code for evaluating the model ready, I have performed some evaluations on the base model, all that remains is to finetune the base model on the corpus I've generated and then run the new weights through the evaluation code. 
+-->
 
 ## References and Citation
 

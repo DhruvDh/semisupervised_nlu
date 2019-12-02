@@ -318,4 +318,4 @@ with open(os.path.join('..', 'data', 'test.txt'), 'w', encoding='utf-8') as f:
     f.writelines(test_list)     
 
     with open(os.path.join('..', 'data', 'masked.txt'), 'w', encoding='utf-8') as F:
-        F.writelines(masked_list)
+        F.writelines(masked_list)   
